@@ -22,11 +22,11 @@ function App() {
   const [linkedinHovered, setlinkedinHovered] = useState(false);
 
   const bannerImages = [
-    "/banner/banner-1.png",
-    "/banner/banner-2.png",
-    "/banner/banner-3.png",
-    "/banner/banner-4.png",
-    "/banner/banner-5.png",
+    `${import.meta.env.BASE_URL}banner/banner-1.png`,
+    `${import.meta.env.BASE_URL}banner/banner-2.png`,
+    `${import.meta.env.BASE_URL}banner/banner-3.png`,
+    `${import.meta.env.BASE_URL}banner/banner-4.png`,
+    `${import.meta.env.BASE_URL}banner/banner-5.png`,
   ];
 
   const [bannerIndex, setBannerIndex] = useState(0);
@@ -155,7 +155,7 @@ function App() {
         <nav className="header-nav">
           <img
             id="logo"
-            src="/identity/logo-century-bearindo-international.png"
+            src={`${import.meta.env.BASE_URL}identity/logo-century-bearindo-international.png`}
             alt="century bearindo international logo"
           />
           <div className="menu-group">

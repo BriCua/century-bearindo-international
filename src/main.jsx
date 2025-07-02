@@ -15,7 +15,7 @@ import Karir from './pages/Karir.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/century-bearindo-international">
       <Routes>
         <Route path="/" element={<App />}/>
         {/* Removed /beranda route, homepage is App */}
