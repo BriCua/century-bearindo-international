@@ -171,7 +171,7 @@ function App() {
               className={`menu-item${isActive("/tentang") ? " active" : ""}`}
               id="tentang"
             >
-              Tentang
+              Tentang Kami
             </Link>
             <Link
               to="/produk"
@@ -223,12 +223,14 @@ function App() {
           </button>
         </nav>
       </header>
-      <figure id="banner-container">
+      <main>
+        <figure id="banner-container">
         <img
           src={bannerImages[bannerIndex]}
           alt="banner"
           className={fade ? "fade-in" : "fade-out"}
           style={{ width: "100%" }}
+          id="banner"
         />
         {/* Left Arrow */}
         <button
@@ -261,7 +263,12 @@ function App() {
             />
           ))}
         </div>
-      </figure>
+        </figure>
+        <div className="divider"/>
+        <section className="desc-space">
+          <img src="./bearings/dark.png" className="dark"/>
+        </section>
+      </main>
     </>
   );
 }
