@@ -1,0 +1,273 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* base size */
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  #logo {
+    width: 16em;
+  }
+  #dropdown {
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+  .icon-desc {
+    display: none;
+  }
+}
+body {
+  background-color: #f4efef;
+}
+
+header {
+  background-color: white;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.header-top {
+  width: 100%;
+  background-color: rgb(230, 0, 0);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #fffbfb;
+  font-size: 0.85em;
+}
+
+.header-top-container {
+  display: flex;
+  justify-content: space-between;
+  justify-self: center;
+  width: 90%;
+  padding: 0.5em 0;
+}
+
+.header-top-left {
+  display: flex;
+  width: fit-content;
+  gap: 2em;
+  justify-content: start;
+}
+.header-top-right {
+  display: flex;
+  width: fit-content;
+  gap: 2.5em;
+  justify-content: end;
+  align-items: center;
+}
+
+a {
+  display: flex;
+  gap: 0.5em;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover:not(.active) {
+  color: white;
+  text-shadow: 0 0 9px #000000cc, 0 0 1.5px white;
+  transform: scale(1.03);
+  backface-visibility: hidden;
+  transform: scale(1.03);
+}
+
+.icon-container {
+  width: 1.5em;
+  height: 1.5em;
+  display: flex;
+  transition: all 0.3s ease-in-out;
+}
+
+.icon-container:hover {
+  transform: scale(1.25);
+}
+
+#linkedin {
+  width: 1em;
+  height: 1em;
+  outline: 0.15em solid white;
+  border-radius: 0.2em;
+}
+
+.icon .icon-default {
+  display: flex;
+  transition: all 0.3s ease-in-out;
+}
+
+.icon .icon-hover {
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.icon:hover .icon-default {
+  display: none;
+}
+
+.icon:hover .icon-hover {
+  display: flex;
+  transform: scale(1.05);
+}
+
+.header-nav {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  justify-self: center;
+  padding: 0.5em 0;
+  z-index: 10;
+}
+
+#logo {
+  width: 24em;
+}
+
+.menu-group {
+  display: flex;
+  justify-content: space-between;
+  width: 55%;
+  align-items: center;
+}
+
+.menu-item {
+  font-size: 0.9em;
+  transition: all 0.3s ease-in-out;
+  /* font-weight: bold; */
+}
+
+.menu-item.active {
+  font-weight: bold;
+  color: #e60000;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0.5em 1em;
+  cursor: default;
+}
+
+.menu-item:hover:not(.active) {
+  background-color: #e60000;
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 1.5em;
+  box-shadow: 0 4px 24px 0 #e6000055, 0 0 1em #fff2;
+  padding: 0.5em 1.5em;
+}
+
+.menu-item.active:hover {
+  text-shadow: 0 0 12px #e60000;
+}
+
+#menu-button {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  #logo {
+    width: 16em;
+  }
+  #menu-button {
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .menu-group {
+    display: none;
+  }
+}
+
+#banner-container {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.banner-dots {
+  position: relative;
+  bottom: 1.5em;
+  display: flex;
+  gap: 0.5em;
+  justify-content: center;
+}
+.banner-dot {
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 50%;
+  background: #fff8;
+  border: 2px solid #e60000;
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+}
+@media (max-width: 768px ){
+  .banner-dot{
+    width: 0.5em;
+    height: 0.5em;
+    border-width: 1px;
+  }
+}
+.banner-dot.active {
+  background: #e60000;
+  border-color: #eee;
+}
+.banner-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff7;
+  border: none;
+  font-size: 2em;
+  color: #e60000;
+  cursor: pointer;
+  z-index: 2;
+  padding: 0.1em 0.1em;
+  border-radius: 0.4em;
+  transition: all 0.3s ease-in-out;
+}
+@media (max-width:768px){
+  .banner-arrow{
+    font-size: 1em;
+  }
+}
+.banner-arrow.left {
+  left: 1em;
+}
+.banner-arrow.right {
+  right: 1em;
+}
+.banner-arrow:hover {
+  background: #e60000;
+  color: #fff;
+}
+.banner-arrow:active{
+  background-color: #fff;
+  color:#e60000
+}
