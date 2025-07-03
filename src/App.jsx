@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import { Icon } from "@iconify/react";
-import { Link, useLocation } from "react-router-dom";
 
+import { useState } from "react";
+import { Icon } from "@iconify/react";
+import { Link, useLocation, Outlet } from "react-router-dom";
 import "./App.css";
 
 function App() {
@@ -14,38 +14,11 @@ function App() {
     return location.pathname.startsWith(path);
   };
 
-  const [count, setCount] = useState(0);
-  /* Top Header Icons */
+  // Top Header Icons hover state
   const [phoneHovered, setPhoneHovered] = useState(false);
   const [emailHovered, setEmailHovered] = useState(false);
   const [instaHovered, setinstaHovered] = useState(false);
   const [linkedinHovered, setlinkedinHovered] = useState(false);
-
-  const bannerImages = [
-    `${import.meta.env.BASE_URL}banner/banner-1.png`,
-    `${import.meta.env.BASE_URL}banner/banner-2.png`,
-    `${import.meta.env.BASE_URL}banner/banner-3.png`,
-    `${import.meta.env.BASE_URL}banner/banner-4.png`,
-    `${import.meta.env.BASE_URL}banner/banner-5.png`,
-  ];
-
-  const [bannerIndex, setBannerIndex] = useState(0);
-  const [fade, setFade] = useState(true);
-
-  const changeBanner = (newIndex) => {
-    setFade(false);
-    setTimeout(() => {
-      setBannerIndex(newIndex);
-      setFade(true);
-    }, 300); // 300ms fade out, then fade in
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      changeBanner((bannerIndex + 1) % bannerImages.length);
-    }, 6000); // Change every 4 seconds
-    return () => clearInterval(interval);
-  }, [bannerIndex]);
 
   return (
     <>
@@ -155,7 +128,9 @@ function App() {
         <nav className="header-nav">
           <img
             id="logo"
-            src={`${import.meta.env.BASE_URL}identity/logo-century-bearindo-international.png`}
+            src={`${
+              import.meta.env.BASE_URL
+            }identity/logo-century-bearindo-international.png`}
             alt="century bearindo international logo"
           />
           <div className="menu-group">
@@ -224,51 +199,9 @@ function App() {
         </nav>
       </header>
       <main>
-        <figure id="banner-container">
-        <img
-          src={bannerImages[bannerIndex]}
-          alt="banner"
-          className={fade ? "fade-in" : "fade-out"}
-          style={{ width: "100%" }}
-          id="banner"
-        />
-        {/* Left Arrow */}
-        <button
-          className="banner-arrow left "
-          onClick={() =>
-            changeBanner(
-              (bannerIndex - 1 + bannerImages.length) % bannerImages.length
-            )
-          }
-          aria-label="Previous"
-        >
-          <Icon icon="line-md:chevron-small-left" className="w-6 h-6"/>
-        </button>
-        {/* Right Arrow */}
-        <button
-          className="banner-arrow right"
-          onClick={() => changeBanner((bannerIndex + 1) % bannerImages.length)}
-          aria-label="Next"
-        >
-          <Icon icon="line-md:chevron-small-right" className="w-6 h-6"/>
-        </button>
-        {/* Dots */}
-        <div className="banner-dots">
-          {bannerImages.map((_, idx) => (
-            <button
-              key={idx}
-              className={`banner-dot${idx === bannerIndex ? " active" : ""}`}
-              onClick={() => changeBanner(idx)}
-              aria-label={`Go to banner ${idx + 1}`}
-            />
-          ))}
-        </div>
-        </figure>
-        <div className="divider"/>
-        <section className="desc-space">
-          <img src="./bearings/dark.png" className="dark"/>
-        </section>
+        <Outlet/>
       </main>
+      
     </>
   );
 }

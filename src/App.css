@@ -1,3 +1,5 @@
+/* Overlay strictly on the image background area */
+
 @import "tailwindcss";
 
 * {
@@ -10,13 +12,13 @@ html {
 
 @media (max-width: 1024px) {
   html {
-    font-size: 15px;
+    font-size: 14px;
   }
 }
 
 @media (max-width: 768px) {
   html {
-    font-size: 13px
+    font-size: 12px
   }
   #logo {
     width: 16em;
@@ -31,7 +33,7 @@ html {
 
 @media (max-width: 480px) {
   html {
-    font-size: 12px;
+    font-size: 10px;
   }
   .icon-desc {
     display: none;
@@ -277,41 +279,44 @@ a:hover:not(.active) {
 
 .divider{
   width: 100%;
-  height: 3em;
+  height: 2em;
   background: linear-gradient(to bottom, #e60000 10%, #080808);
 }
 
 @media (max-width: 768px){
   .divider{
-    height: 2.25em;
+    height: 1.25em;
   }
 }
 
 @media (max-width:480px) {
   .divider{
-    height: 1.75em;
+    height: 0.75em;
   }
 }
 
 
 
 .desc-space {
-  height: 40%;
-  background: linear-gradient(
-    to bottom,
-    #202020 10%,
-    #2d2d2d 35%,
-    #3e3e3e 50%,
-    #2d2d2d 65%,
-    #202020 90%
-  );
+  display: flex;
+  justify-content: flex-end;
+  height: 55em;
   position: relative;
+  background:
+    url('/bearings/dark.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100% auto;
 }
 
-.desc-space::before {
+.desc-space::after {
   content: "";
   position: absolute;
-  inset: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: calc(100vw * 1154 / 2000);
+  max-height: 55em;
   background: linear-gradient(
     to right,
     rgba(0, 0, 0, 0.95) 10%,
@@ -319,10 +324,26 @@ a:hover:not(.active) {
     rgba(0, 0, 0, 0.8) 55%,
     rgba(0, 0, 0, 0.90) 65%,
     rgba(0, 0, 0, 0.95) 90%
-  ); /* or use gradient */
+  );
+  pointer-events: none;
   z-index: 1;
 }
 
-.dark {
-  width: 100%;
+
+
+.desc-content{
+  position: relative;
+  z-index: 2;
+  color:#fffbfb;
+  
+  display: flex;
+  width: 35%;
+  height: fit-content;
+  flex-direction: column;
+  gap: 1em;
+  margin-right: 10%;
+}
+
+h1{
+  font-size: 2em;
 }
