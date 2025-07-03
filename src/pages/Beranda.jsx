@@ -1,7 +1,6 @@
-
 import { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
-import FadeContent from '../FadeContent';
+import FadeContent from "../FadeContent";
 
 export default function Beranda() {
   const bannerImages = [
@@ -72,14 +71,24 @@ export default function Beranda() {
         </div>
       </figure>
       <div className="divider" />
+      <FadeContent
+            blur={true}
+            duration={500}
+            easing="ease-out"
+            initialOpacity={0}
+            className="z-10"
+          >
       <section className="desc-space">
         <div className="desc-content">
-          <FadeContent blur={true} duration={500} easing="ease-out" initialOpacity={0}>
-            <h1>Hello World</h1>
-            <p>This text is on top of the background image and overlay.</p>
-          </FadeContent>
+            <div className="desc-text">
+              <h1>Hello World</h1>
+              <p>This text is on top of the background image and overlay.</p>
+            </div>
         </div>
+        
       </section>
+      </FadeContent>
+      <p>this is test</p>
     </>
   );
 }

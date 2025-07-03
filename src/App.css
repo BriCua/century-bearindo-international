@@ -299,8 +299,8 @@ a:hover:not(.active) {
 
 .desc-space {
   display: flex;
-  justify-content: flex-end;
-  height: 55em;
+  justify-content: center;
+  height: calc(100vw * (1154 / 2000));
   position: relative;
   background:
     url('/bearings/dark.png');
@@ -315,8 +315,7 @@ a:hover:not(.active) {
   left: 0;
   top: 0;
   width: 100%;
-  height: calc(100vw * 1154 / 2000);
-  max-height: 55em;
+  height: calc(100% * (1154 / 2000) *1.715);
   background: linear-gradient(
     to right,
     rgba(0, 0, 0, 0.95) 10%,
@@ -333,15 +332,23 @@ a:hover:not(.active) {
 
 .desc-content{
   position: relative;
-  z-index: 2;
+  z-index: 3;
   color:#fffbfb;
-  
   display: flex;
-  width: 35%;
-  height: fit-content;
-  flex-direction: column;
+  width: 90%;
   gap: 1em;
-  margin-right: 10%;
+  justify-self: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.desc-image{
+  width: 40%;
+
+}
+
+.desc-text{
+  width: 40%;
 }
 
 h1{
