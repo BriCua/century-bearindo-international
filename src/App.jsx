@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import { Link, useLocation, Outlet } from "react-router-dom";
 import "./App.css";
@@ -19,6 +18,26 @@ function App() {
   const [emailHovered, setEmailHovered] = useState(false);
   const [instaHovered, setinstaHovered] = useState(false);
   const [linkedinHovered, setlinkedinHovered] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const menuButtonRef = useRef(null);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    if (!dropdownOpen) return;
+    function handleClickOutside(event) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        menuButtonRef.current &&
+        !menuButtonRef.current.contains(event.target)
+      ) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [dropdownOpen]);
 
   return (
     <>
@@ -191,17 +210,51 @@ function App() {
               Karir
             </Link>
           </div>
-          <button id="menu-button">
-            {/* Animation */}
-
-            <Icon icon={"line-md:close-to-menu-alt-transition"} />
-          </button>
+          <div style={{ position: 'relative', display: 'inline-block' }}>
+            <button
+              id="menu-button"
+              ref={menuButtonRef}
+              onClick={() => setDropdownOpen((open) => !open)}
+            >
+              <Icon icon={"line-md:close-to-menu-alt-transition"} />
+            </button>
+            {dropdownOpen && (
+              <div
+                className="menu-dropdown"
+                ref={dropdownRef}
+              >
+                <Link to="/" className="menu-item" style={{ padding: '0.75em 1.5em' }} onClick={() => setDropdownOpen(false)}>
+                  Beranda
+                </Link>
+                <Link to="/tentang" className="menu-item" style={{ padding: '0.75em 1.5em' }} onClick={() => setDropdownOpen(false)}>
+                  Tentang Kami
+                </Link>
+                <Link to="/produk" className="menu-item" style={{ padding: '0.75em 1.5em' }} onClick={() => setDropdownOpen(false)}>
+                  Produk
+                </Link>
+                <Link to="/layanan" className="menu-item" style={{ padding: '0.75em 1.5em' }} onClick={() => setDropdownOpen(false)}>
+                  Layanan
+                </Link>
+                <Link to="/katalog" className="menu-item" style={{ padding: '0.75em 1.5em' }} onClick={() => setDropdownOpen(false)}>
+                  Katalog
+                </Link>
+                <Link to="/kontak" className="menu-item" style={{ padding: '0.75em 1.5em' }} onClick={() => setDropdownOpen(false)}>
+                  Kontak
+                </Link>
+                <Link to="/galeri" className="menu-item" style={{ padding: '0.75em 1.5em' }} onClick={() => setDropdownOpen(false)}>
+                  Galeri
+                </Link>
+                <Link to="/karir" className="menu-item" style={{ padding: '0.75em 1.5em' }} onClick={() => setDropdownOpen(false)}>
+                  Karir
+                </Link>
+              </div>
+            )}
+          </div>
         </nav>
       </header>
       <main>
-        <Outlet/>
+        <Outlet />
       </main>
-      
     </>
   );
 }
