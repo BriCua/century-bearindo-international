@@ -306,7 +306,7 @@ a:hover:not(.active) {
     url('/bearings/dark.png');
   background-repeat: no-repeat;
   background-position: top;
-  background-size: 100% auto;
+  background-size: cover;
 }
 
 .desc-space::after {
@@ -315,7 +315,7 @@ a:hover:not(.active) {
   left: 0;
   top: 0;
   width: 100%;
-  height: calc(100% * (1154 / 2000) *1.715);
+  height: calc(100vw * (1154 / 2000));
   background: linear-gradient(
     to right,
     rgba(0, 0, 0, 0.95) 10%,
