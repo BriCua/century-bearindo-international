@@ -144,7 +144,8 @@ function App() {
             </span>
           </div>
         </div>
-        <nav className="header-nav">
+      </header>
+      <nav className="header-nav">
           <img
             id="logo"
             src={`${
@@ -223,35 +224,81 @@ function App() {
                 className="menu-dropdown"
                 ref={dropdownRef}
               >
-                <Link to="/" className="menu-item" style={{ padding: '0.75em 1.5em' }} onClick={() => setDropdownOpen(false)}>
+                <Link
+                  to="/"
+                  className={`menu-item${isActive("/") ? " active" : ""}`}
+                  style={{ padding: '0.75em 1.5em' }}
+                  onClick={() => setDropdownOpen(false)}
+                >
                   Beranda
                 </Link>
-                <Link to="/tentang" className="menu-item" style={{ padding: '0.75em 1.5em' }} onClick={() => setDropdownOpen(false)}>
+                <hr />
+                <Link
+                  to="/tentang"
+                  className={`menu-item${isActive("/tentang") ? " active" : ""}`}
+                  style={{ padding: '0.75em 1.5em' }}
+                  onClick={() => setDropdownOpen(false)}
+                >
                   Tentang Kami
                 </Link>
-                <Link to="/produk" className="menu-item" style={{ padding: '0.75em 1.5em' }} onClick={() => setDropdownOpen(false)}>
+                <hr />
+                <Link
+                  to="/produk"
+                  className={`menu-item${isActive("/produk") ? " active" : ""}`}
+                  style={{ padding: '0.75em 1.5em' }}
+                  onClick={() => setDropdownOpen(false)}
+                >
                   Produk
                 </Link>
-                <Link to="/layanan" className="menu-item" style={{ padding: '0.75em 1.5em' }} onClick={() => setDropdownOpen(false)}>
+                <hr />
+                <Link
+                  to="/layanan"
+                  className={`menu-item${isActive("/layanan") ? " active" : ""}`}
+                  style={{ padding: '0.75em 1.5em' }}
+                  onClick={() => setDropdownOpen(false)}
+                >
                   Layanan
                 </Link>
-                <Link to="/katalog" className="menu-item" style={{ padding: '0.75em 1.5em' }} onClick={() => setDropdownOpen(false)}>
+                <hr />
+                <Link
+                  to="/katalog"
+                  className={`menu-item${isActive("/katalog") ? " active" : ""}`}
+                  style={{ padding: '0.75em 1.5em' }}
+                  onClick={() => setDropdownOpen(false)}
+                >
                   Katalog
                 </Link>
-                <Link to="/kontak" className="menu-item" style={{ padding: '0.75em 1.5em' }} onClick={() => setDropdownOpen(false)}>
+                <hr />
+                <Link
+                  to="/kontak"
+                  className={`menu-item${isActive("/kontak") ? " active" : ""}`}
+                  style={{ padding: '0.75em 1.5em' }}
+                  onClick={() => setDropdownOpen(false)}
+                >
                   Kontak
                 </Link>
-                <Link to="/galeri" className="menu-item" style={{ padding: '0.75em 1.5em' }} onClick={() => setDropdownOpen(false)}>
+                <hr />
+                <Link
+                  to="/galeri"
+                  className={`menu-item${isActive("/galeri") ? " active" : ""}`}
+                  style={{ padding: '0.75em 1.5em' }}
+                  onClick={() => setDropdownOpen(false)}
+                >
                   Galeri
                 </Link>
-                <Link to="/karir" className="menu-item" style={{ padding: '0.75em 1.5em' }} onClick={() => setDropdownOpen(false)}>
+                <hr />
+                <Link
+                  to="/karir"
+                  className={`menu-item${isActive("/karir") ? " active" : ""}`}
+                  style={{ padding: '0.75em 1.5em' }}
+                  onClick={() => setDropdownOpen(false)}
+                >
                   Karir
                 </Link>
               </div>
             )}
           </div>
         </nav>
-      </header>
       <main>
         <Outlet />
       </main>
