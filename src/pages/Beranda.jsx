@@ -3,13 +3,14 @@ import { Icon } from "@iconify/react";
 import FadeContent from "../FadeContent";
 import AnimatedContent from "../AnimatedContent";
 import { Link } from "react-router-dom";
+
 // import { Tooltip } from "flowbite-react";
 //import InfiniteScroll from '../InfiniteScroll';
 
 export default function Beranda() {
   const carouselImages = [
     `${import.meta.env.BASE_URL}carousel/carousel-1.png`,
-    `${import.meta.env.BASE_URL}carousel/carousel-2.png`,
+    /* `${import.meta.env.BASE_URL}carousel/carousel-2.png`, */
     `${import.meta.env.BASE_URL}carousel/carousel-3.png`,
     `${import.meta.env.BASE_URL}carousel/carousel-4.png`,
     `${import.meta.env.BASE_URL}carousel/carousel-5.png`,
@@ -125,14 +126,13 @@ export default function Beranda() {
           ))}
         </div>
       </figure>
-      <div className="divider" />
 
       <section className="desc-space">
         <div className="desc-content">
           <FadeContent
             blur={true}
-            duration={500}
-            easing="ease-in-out"
+            duration={1000}
+            easing="ease-out"
             initialOpacity={0}
             className="desc-image-container"
           >
@@ -149,55 +149,40 @@ export default function Beranda() {
               animateOpacity
               scale={1}
               threshold={0.2}
-              delay={1}
+              delay={0.5}
             >
-              <h1>Distributor Bearings Resmi - Surabaya</h1>
+              <h1 className="desc-title">Distributor & Supplier Bearing Surabaya</h1>
             </AnimatedContent>
             <AnimatedContent
               distance={150}
               direction="horizontal"
               reverse={false}
-              duration={1.5}
+              duration={1.25}
               ease="power3.out"
               initialOpacity={0}
               animateOpacity
               scale={1}
               threshold={0.2}
-              delay={1}
+              delay={0.5}
             >
-              <p>
-                <strong>PT. Century Bearindo International</strong> didirikan
-                pada tahun 2003 di Surabaya, Jawa Timur–Indonesia. Perusahaan
-                ini merupakan bagian dari International Bearings Group yang
-                berbasis di Singapura, dan dikenal sebagai distributor eksklusif
-                serta resmi untuk berbagai merek bearing ternama dunia seperti
-                NACHI, LUK_FAG_INA, FYH, SPX POWERTEAM, NMB, JNS, IJK, SAMICK,
-                ILJIN, TIMKEN, FBJ, BANDO, dan lainnya.
-              </p>
-              <p id="p-opt">
-                Didukung oleh kepemimpinan yang kuat dan sumber daya yang
-                produktif, grup perusahaan ini telah mengembangkan jaringan yang
-                luas selama lebih dari 50 tahun dan dua generasi. Hingga kini,
-                International Bearings Group telah memiliki lebih dari 25 cabang
-                di berbagai negara termasuk Indonesia (Jakarta, Surabaya, Medan,
-                Palembang, Pekanbaru, dan lainnya), Malaysia, Thailand, Vietnam,
-                dan China.
+              <p className="desc-p">
+                Sejak tahun 2003, bergerak di bidang solusi bearing dan komponen mekanikal dari merek-merek global seperti SKF, FAG, NTN, dan NSK. Mengutamakan kebutuhan industri serta mendukung performa dan efisiensi operasional secara maksimal.
               </p>
             </AnimatedContent>
             <AnimatedContent
               distance={150}
               direction="vertical"
               reverse={false}
-              duration={1.5}
+              duration={1}
               ease="power3.out"
               initialOpacity={0}
               animateOpacity
               scale={1}
               threshold={0.2}
-              delay={1}
+              delay={0}
             >
               <div className="flex justify-end">
-                <Link to="/tentang" className="menu-item read-more">
+                <Link to="/tentang" className="read-more">
                   Baca Selengkapnya
                 </Link>
               </div>
@@ -205,77 +190,239 @@ export default function Beranda() {
           </div>
         </div>
       </section>
-      <div className="divider-reverse" />
+
+      {/* <div className="divider-reverse" /> */}
       <section className="showcase">
         <h2 className="showcase-title"> Produk Unggulan </h2>
-        <div className="white-divider" />
+        {/* <div className="white-divider" /> */}
         <br />
-        
-        <div className="showcase-container">
-          <Link class="card" to="/produk">
-            <div class="card-details">
-              <img src="./bearings/desc2.png" className="card-img" />
-              <hr className="border-solid" />
-              <p class="text-title">Service</p>
-            </div>
-            <button class="card-button">More info</button>
-          </Link>
-          <Link class="card" to="/produk">
-            <div class="card-details">
-              <img src="./bearings/desc2.png" className="card-img" />
-              <hr className="border-solid" />
-              <p class="text-title">Service</p>
-            </div>
-            <button class="card-button">More info</button>
-          </Link>
-          <Link class="card" to="/produk">
-            <div class="card-details">
-              <img src="./bearings/desc2.png" className="card-img" />
-              <hr className="border-solid" />
-              <p class="text-title">Service</p>
-            </div>
-            <button class="card-button">More info</button>
-          </Link>
-          <Link class="card" to="/produk">
-            <div class="card-details">
-              <img src="./bearings/desc2.png" className="card-img" />
-              <hr className="border-solid" />
-              <p class="text-title">Service</p>
-            </div>
-            <button class="card-button">More info</button>
-          </Link>
-          <Link class="card" to="/produk">
-            <div class="card-details">
-              <img src="./bearings/desc2.png" className="card-img" />
-              <hr className="border-solid" />
-              <p class="text-title">Service</p>
-            </div>
-            <button class="card-button">More info</button>
-          </Link>
-          <Link class="card" to="/produk">
-            <div class="card-details">
-              <img src="./bearings/desc2.png" className="card-img" />
-              <hr className="border-solid" />
-              <p class="text-title">Service</p>
-            </div>
-            <button class="card-button">More info</button>
-          </Link>
-          <Link class="card" to="/produk">
-            <div class="card-details">
-              <img src="./bearings/desc2.png" className="card-img" />
-              <hr className="border-solid" />
-              <p class="text-title">Service</p>
-            </div>
-            <button class="card-button">More info</button>
-          </Link>
-          <Link class="card" to="/produk">
-            <div class="card-details">
-              <img src="./bearings/desc2.png" className="card-img" />
-              <hr className="border-solid" />
-              <p class="text-title">Service</p>
-            </div>
-            <button class="card-button">More info</button>
-          </Link>
+
+        <div className="card-container">
+          <AnimatedContent
+            distance={150}
+            direction="vertical"
+            reverse={false}
+            duration={1}
+            ease="power3.out"
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.2}
+            delay={0}
+          >
+            <Link to="/produk" className="card">
+                <div class="card-details flex flex-col gap-4 items-center pt-2">
+                  <img
+                    src=".\produk\prod-1.png"
+                    className="card-img"
+                    alt="produk"
+                  />
+                  <hr className="border-solid" />
+                  <p className="card-title">Bearings & Housing</p>
+                </div>
+              <button className="card-button">Selengkapnya</button>
+            </Link>
+          </AnimatedContent>
+          <AnimatedContent
+            distance={150}
+            direction="vertical"
+            reverse={false}
+            duration={1}
+            ease="power3.out"
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.2}
+            delay={0}
+          >
+            <Link to="/produk" className="card">
+              <div class="card-details flex flex-col gap-4 items-center pt-2">
+                <img
+                  src=".\produk\prod-2.png"
+                  className="card-img"
+                  alt="produk"
+                />
+                <hr className="border-solid" />
+                <p className="card-title">Bearing Otomotif</p>
+              </div>
+              <button className="card-button">Selengkapnya</button>
+            </Link>
+          </AnimatedContent>
+          <AnimatedContent
+            distance={150}
+            direction="vertical"
+            reverse={false}
+            duration={1}
+            ease="power3.out"
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.2}
+            delay={0}
+          >
+            <Link to="/produk" className="card">
+              <div class="card-details flex flex-col gap-4 items-center pt-2">
+                <img
+                  src="./produk/prod-3.png"
+                  className="card-img"
+                  alt="produk"
+                />
+                <hr className="border-solid" />
+                <p className="card-title">Wiper Blades</p>
+              </div>
+              <button className="card-button">Selengkapnya</button>
+            </Link>
+          </AnimatedContent>
+          <AnimatedContent
+            distance={150}
+            direction="vertical"
+            reverse={false}
+            duration={1}
+            ease="power3.out"
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.2}
+            delay={0}
+          >
+            <Link to="/produk" className="card">
+              <div class="card-details flex flex-col gap-4 items-center pt-2">
+                <img
+                  src="./produk/prod-4.png"
+                  className="card-img"
+                  alt="produk"
+                />
+                <hr className="border-solid" />
+                <p className="card-title">Maintenance Tools</p>
+              </div>
+              <button className="card-button">Selengkapnya</button>
+            </Link>
+          </AnimatedContent>
+          <AnimatedContent
+            distance={150}
+            direction="vertical"
+            reverse={false}
+            duration={1}
+            ease="power3.out"
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.2}
+            delay={0}
+          >
+            <Link to="/produk" className="card">
+              <div class="card-details flex flex-col gap-4 items-center pt-2">
+                <img
+                  src="./produk/prod-5.png"
+                  className="card-img"
+                  alt="produk"
+                />
+                <hr className="border-solid" />
+                <p className="card-title">Hydraulic Tools</p>
+              </div>
+              <button className="card-button">Selengkapnya</button>
+            </Link>
+          </AnimatedContent>
+          <AnimatedContent
+            distance={150}
+            direction="vertical"
+            reverse={false}
+            duration={1}
+            ease="power3.out"
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.2}
+            delay={0}
+          >
+            <Link to="/produk" className="card">
+              <div class="card-details flex flex-col gap-4 items-center pt-2">
+                <img
+                  src="./produk/prod-6.png"
+                  className="card-img"
+                  alt="produk"
+                />
+                <hr className="border-solid" />
+                <p className="card-title">Pneumatic Control</p>
+              </div>
+              <button className="card-button">Selengkapnya</button>
+            </Link>
+          </AnimatedContent>
+          <AnimatedContent
+            distance={150}
+            direction="vertical"
+            reverse={false}
+            duration={1}
+            ease="power3.out"
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.2}
+            delay={0}
+          >
+            <Link to="/produk" className="card">
+              <div class="card-details flex flex-col gap-4 items-center pt-2">
+                <img
+                  src="./produk/prod-7.png"
+                  className="card-img"
+                  alt="produk"
+                />
+                <hr className="border-solid" />
+                <p className="card-title">Conveyor Belts & V-Belts</p>
+              </div>
+              <button className="card-button">Selengkapnya</button>
+            </Link>
+          </AnimatedContent>
+          <AnimatedContent
+            distance={150}
+            direction="vertical"
+            reverse={false}
+            duration={1}
+            ease="power3.out"
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.2}
+            delay={0}
+          >
+            <Link to="/produk" className="card">
+              <div class="card-details flex flex-col gap-4 items-center pt-2">
+                <img
+                  src="./produk/prod-8.png"
+                  className="card-img"
+                  alt="produk"
+                />
+                <hr className="border-solid" />
+                <p className="card-title">Motor & Gearboxes</p>
+              </div>
+              <button className="card-button">Selengkapnya</button>
+            </Link>
+          </AnimatedContent>
+          <AnimatedContent
+            distance={150}
+            direction="vertical"
+            reverse={false}
+            duration={1}
+            ease="power3.out"
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.2}
+            delay={0}
+          >
+            <Link to="/produk" className="card">
+              <div class="card-details flex flex-col gap-4 items-center pt-2">
+                <img
+                  src=".\produk\prod-9.png"
+                  className="card-img"
+                  alt="produk"
+                />
+                <hr className="border-solid" />
+                <p className="card-title">Belt Fastener & Cleaning System</p>
+              </div>
+              <button className="card-button">Selengkapnya</button>
+            </Link>
+          </AnimatedContent>
         </div>
       </section>
     </>

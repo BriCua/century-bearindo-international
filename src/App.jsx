@@ -51,6 +51,7 @@ function App() {
                   target="blank"
                   onMouseEnter={() => setPhoneHovered(true)}
                   onMouseLeave={() => setPhoneHovered(false)}
+                  className="icon-link"
                 >
                   <div className="icon-container">
                     <Icon
@@ -74,6 +75,7 @@ function App() {
                   target="blank"
                   onMouseEnter={() => setEmailHovered(true)}
                   onMouseLeave={() => setEmailHovered(false)}
+                  className="icon-link"
                 >
                   <div className="icon-container">
                     <Icon
@@ -99,6 +101,7 @@ function App() {
                   target="blank"
                   onMouseEnter={() => setinstaHovered(true)}
                   onMouseLeave={() => setinstaHovered(false)}
+                  
                 >
                   <div className="icon-container">
                     <Icon
