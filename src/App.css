@@ -8,11 +8,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 @import "tailwindcss";
-@import "./partials/header.css";
-@import "./partials/carousel-home.css";
-@import "./partials/desc-home.css";
-@import "./partials/showcase.css";
+@import "./partials/beranda/header.css";
+@import "./partials/beranda/carousel-home.css";
+@import "./partials/beranda/desc-home.css";
+@import "./partials/beranda/showcase.css";
+@import "./partials/beranda/typography.css";
+@import "./partials/beranda/services.css";
 
 @plugin "flowbite-react/plugin/tailwindcss";
 @source "../.flowbite-react/class-list.json";
@@ -29,11 +32,22 @@
   --color-white: #fff;
   --color-bg: #f4efef;
   --border-radius-lg: 2em;
-  --font-heading: "Nunito Sans", Serif;
+  --font-heading: "Figtree", Serif;
   --font-header: Verdana, sans-serif;
   --font-body: "Montserrat", serif, Verdana, Geneva, Tahoma, sans-serif;
   --font-button: "Poppins", sans-serif;
   --section-padding: 0 5%;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+@media (min-width:2025px){
+  html{
+    max-width: 2025px;
+    justify-self: center ;
+  }
 }
 
 html {

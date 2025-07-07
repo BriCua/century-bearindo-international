@@ -1,0 +1,12 @@
+strong {
+  font-size: 1.1em;
+  display: block;
+}
+
+.nunito-sans {
+  font-family: "Nunito Sans", serif;
+}
+
+.verdana {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

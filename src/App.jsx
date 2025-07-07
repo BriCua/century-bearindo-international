@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import { Link, useLocation, Outlet } from "react-router-dom";
 import "./App.css";
 
+
 function App() {
   const location = useLocation();
   // Helper to check if a menu item is active
