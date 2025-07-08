@@ -10,3 +10,11 @@ strong {
 .verdana {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+h2{
+  color: var(--color-black);
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+  font-size: 3rem;
+  font-family: var(--font-heading);
+}

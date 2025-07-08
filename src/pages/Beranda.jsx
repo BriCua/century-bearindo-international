@@ -4,6 +4,7 @@ import FadeContent from "../FadeContent";
 import AnimatedContent from "../AnimatedContent";
 import { Link } from "react-router-dom";
 import FlipCard from "../FlipCard";
+import { Container } from "postcss";
 
 // import { Tooltip } from "flowbite-react";
 //import InfiniteScroll from '../InfiniteScroll';
@@ -146,7 +147,7 @@ export default function Beranda() {
               animateOpacity
               scale={1}
               threshold={0.2}
-              delay={0.5}
+              delay={0.75}
             >
               <p className="desc-p">
                 Bergerak di bidang solusi bearing dan komponen mekanikal dari
@@ -313,22 +314,69 @@ export default function Beranda() {
         </FadeContent>
       </section>
       <section className="services">
-            <div className="services-desc">
-            <Link to="/layanan" className="services-title-container"><div className="decor-vert"></div><h2 className="services-title">Layanan Kami</h2><hr className="line"/></Link>
-          <p className="desc-p">PT. Century Bearindo International menyediakan berbagai layanan komprehensif untuk melengkapi penawaran produknya.</p>
-          </div>
-            <FlipCard/>
+        <div className="services-desc">
+          <AnimatedContent
+          distance={150}
+              direction="horizontal"
+              reverse={true}
+              duration={1.5}
+              ease="power3.out"
+              initialOpacity={0}
+              animateOpacity
+              scale={1}
+              threshold={0.2}
+              delay={0.5}>
+          <Link to="/layanan" className="services-title-container">
+            <div className="decor-vert"></div>
+            <h2 className="services-title">Layanan Kami</h2>
+            <hr className="line" />
+          </Link>
+          </AnimatedContent>
+          <AnimatedContent
+          distance={150}
+              direction="horizontal"
+              reverse={true}
+              duration={1.25}
+              ease="power3.out"
+              initialOpacity={0}
+              animateOpacity
+              scale={1}
+              threshold={0.2}
+              delay={0.75}>
+          <p className="desc-p">
+            PT. Century Bearindo International menyediakan berbagai layanan
+            komprehensif untuk melengkapi penawaran produknya.
+          </p>
+          </AnimatedContent>
+        </div>
+        <AnimatedContent
+          distance={150}
+              direction="horizontal"
+              reverse={false}
+              duration={1.5}
+              ease="power3.out"
+              initialOpacity={0}
+              animateOpacity
+              scale={1}
+              threshold={0.2}
+              delay={0.5}>
+        <FlipCard/>
+        </AnimatedContent>
       </section>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+      <section className="partners">
+        <h2>Our Partners</h2>
+        
+      </section>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 }

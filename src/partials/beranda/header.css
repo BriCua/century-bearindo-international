@@ -38,13 +38,16 @@ header {
   align-items: center;
 }
 
-.icon-link {
+.icon{
   transition: all 0.3s ease-out;
+}
+
+.icon-link {
   display: flex;
   gap: 0.5em;
 }
 
-icon:hover:not(.active) {
+.icon:hover:not(.active) {
   color: white;
   text-shadow: 0 0 9px #000000bb, 0 0 1.5px white;
   transform: scale(1.03);

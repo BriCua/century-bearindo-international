@@ -15,123 +15,126 @@
   align-items: flex-start;
   width: 100%;
   justify-self: center;
-  gap: 15%;
-  font-size: 1.1rem;
+  gap: 17.5%;
+  font-size: 1rem;
   margin-top: 10em;
 }
 
-@media(max-width: 1100px){
-  .services{
+@media (max-width: 1100px) {
+  .services {
     gap: 10%;
   }
 }
 
-@media(max-width: 900px){
-  .services{
-    gap: 5%
+@media (max-width: 900px) {
+  .services {
+    gap: 5%;
   }
 }
-.services-title-container .line{
-  display: none;
-}
 
-.services-desc{
+
+.services-desc {
   display: flex;
   flex-direction: column;
   width: 30em;
 }
 
-@media(max-width: 1100px){
-  .services-desc{width: 25em;}
+@media (max-width: 1100px) {
+  .services-desc {
+    width: 25em;
+  }
 }
 
 .services-title-container {
   width: fit-content;
-  color: var(--color-black);
-  font-weight: 700;
   margin-top: 2em;
-  letter-spacing: 0.05rem;
-  font-size: 3rem;
   font-family: var(--font-heading);
   transition: all 0.5s ease-out;
   display: flex;
   align-items: center;
 }
 
-.decor-vert{
+.decor-vert {
   background-color: #e60000 !important;
   height: 1.1em;
   width: 0.1em;
   margin-right: 1em;
   padding-top: 1em;
   transition: all 0.5s ease-out;
-  transform-origin: left ;
+  transform-origin: left;
+  font-size: 3rem;
 }
-.services-title-container:hover .decor-vert{
+.services-title-container:hover .decor-vert {
   transform: scale(20, 0.75);
 }
 
-.services-title-container:hover .services-title{
+.services-title-container:hover .services-title {
   transform: translateX(2em);
+  letter-spacing: 0.1em;
 }
 
-.services-title{
-  transition: transform 0.5s ease-out;
+.services-title {
+  transition: all 0.5s ease-out;
 }
 
-@media(max-width: 768px){
-  .line{
-    display: block;
-  }
-  .services{
+@media (min-width: 768px){
+   .services-title-container .line {
+  display: none;
+}
+}
+
+@media (max-width: 768px) {
+  .services {
     flex-direction: column;
     gap: 3em;
     align-items: center;
     justify-content: flex-start;
     margin-top: 2em;
   }
-  .services-title-container{
+  .services-title-container {
     font-size: 2.75rem;
     display: flex;
     flex-direction: column;
     transform-origin: center;
     text-align: center;
   }
-  .services-title-container:hover{
+  .services-title-container:hover {
     transform: none;
     letter-spacing: 0.2em;
   }
 
-  .services-title-container:hover .line{
-width: 80%;
+  .services-title-container:hover .line {
+    width: 80%;
   }
-  
-  .services-desc{
+
+  .services-desc {
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1em;
-    width: 90%;
+    width: 70%;
   }
-
   
-
-  .decor-vert{
+  .hint{
+    opacity: 1;
+  }
+  .decor-vert {
     display: none;
   }
+
 }
 
 .flipcard {
   transition: all 0.5s ease-out;
-  height: 22.75em;
+  height: 24.25em;
   width: 20em;
   box-shadow: 4px 4px 8px #00000088;
   border-radius: 1em;
 }
 
 .flipcard:hover {
-  height: 27em;
-  transform: translate(0,-1em);
+  height: 28.5em;
+  transform: translate(0, -1em);
 }
 
 .dash-red {
@@ -153,11 +156,10 @@ width: 80%;
   width: 100%;
 }
 
-.flipcard-title{
-    margin-top: 0.25em;
-    font-size: 1.25em;
+.flipcard-title {
+  margin-top: 0.25em;
+  font-size: 1.25em;
 }
-
 
 .flipcard-desc {
   display: -webkit-box;
@@ -195,7 +197,7 @@ width: 80%;
   content: " >";
 }
 
-.hint{
-    font-weight:600;
-    font-family: var(--font-button);
+.hint {
+  font-weight: 600;
+  font-family: var(--font-button);
 }

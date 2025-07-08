@@ -1,0 +1,6 @@
+.partners{
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+   margin-top: 17em;
+}

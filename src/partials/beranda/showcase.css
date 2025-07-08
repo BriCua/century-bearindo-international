@@ -9,11 +9,8 @@
 .showcase-title {
   width: 100%;
   text-align: center;
-  color: var(--color-black);
-  font-weight: bold;
   margin-top: 2rem;
-  font-size: 3rem;
-  font-family: var(--font-heading);
+  letter-spacing: 0.025em;
   transition: all 0.5s ease-out;
 }
 
