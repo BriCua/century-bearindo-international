@@ -4,7 +4,7 @@ import FadeContent from "../FadeContent";
 import AnimatedContent from "../AnimatedContent";
 import { Link } from "react-router-dom";
 import FlipCard from "../FlipCard";
-import { Container } from "postcss";
+import FlipGrid from "../FlipGrid";
 
 // import { Tooltip } from "flowbite-react";
 //import InfiniteScroll from '../InfiniteScroll';
@@ -35,6 +35,14 @@ export default function Beranda() {
     return () => clearInterval(interval);
   }, [carouselIndex]);
 
+  useEffect(() => {
+    const floatElements = document.querySelectorAll(".float");
+    floatElements.forEach((el) => {
+      const delay = Math.random() * 2; // 0 - 2 seconds
+      el.style.animationDelay = `${delay}s`;
+    });
+  }, []);
+
   return (
     <>
       <figure
@@ -62,7 +70,7 @@ export default function Beranda() {
       >
         <img
           src={carouselImages[carouselIndex]}
-          alt="carousel"
+          alt=""
           className={fade ? "fade-in" : "fade-out"}
           style={{ width: "100%" }}
           id="carousel"
@@ -118,7 +126,7 @@ export default function Beranda() {
             initialOpacity={0}
             className="desc-image-container"
           >
-            <img src="./bearings/desc.png" className="desc-image" />
+            <img src="./identity/about.webp" className="desc-image" />
           </FadeContent>
           <div className="desc-text">
             <AnimatedContent
@@ -198,108 +206,108 @@ export default function Beranda() {
 
         <FadeContent
           blur={true}
-          duration={500}
+          duration={1000}
           easing="ease-out"
           initialOpacity={0}
           className="card-container"
         >
-          <Link to="/produk" className="card">
+          <Link to="/produk" className="card float">
             <div className="card-details">
               <img
                 src=".\produk\prod-1.png"
                 className="card-img"
-                alt="produk"
+                alt="Bearings and Housing"
               />
               <hr className="border-solid" />
               <p className="card-title">Bearings & Housing</p>
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card">
+          <Link to="/produk" className="card float">
             <div className="card-details">
               <img
                 src=".\produk\prod-2.png"
                 className="card-img"
-                alt="produk"
+                alt="Bearing Otomotif"
               />
               <hr className="border-solid" />
               <p className="card-title">Bearing Otomotif</p>
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card">
+          <Link to="/produk" className="card float">
             <div className="card-details">
               <img
                 src="./produk/prod-3.png"
                 className="card-img"
-                alt="produk"
+                alt="Wiper Blades"
               />
               <hr className="border-solid" />
               <p className="card-title">Wiper Blades</p>
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card">
+          <Link to="/produk" className="card float">
             <div className="card-details">
               <img
                 src="./produk/prod-4.png"
                 className="card-img"
-                alt="produk"
+                alt="Maintenance Tools"
               />
               <hr className="border-solid" />
               <p className="card-title">Maintenance Tools</p>
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card">
+          <Link to="/produk" className="card float">
             <div className="card-details">
               <img
                 src="./produk/prod-5.png"
                 className="card-img"
-                alt="produk"
+                alt="Hydraulic Tools"
               />
               <hr className="border-solid" />
               <p className="card-title">Hydraulic Tools</p>
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card">
+          <Link to="/produk" className="card float">
             <div className="card-details">
               <img
                 src="./produk/prod-6.png"
                 className="card-img"
-                alt="produk"
+                alt="Pneumatic Control"
               />
               <hr className="border-solid" />
               <p className="card-title">Pneumatic Control</p>
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card">
+          <Link to="/produk" className="card float">
             <div className="card-details">
               <img
                 src="./produk/prod-7.png"
                 className="card-img"
-                alt="produk"
+                alt="Conveyour Belts & V-Belts"
               />
               <hr className="border-solid" />
               <p className="card-title">Conveyor Belts & V-Belts</p>
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card">
+          <Link to="/produk" className="card float">
             <div className="card-details">
               <img
                 src="./produk/prod-8.png"
                 className="card-img"
-                alt="produk"
+                alt="Motor & Gearboxes"
               />
               <hr className="border-solid" />
               <p className="card-title">Motor & Gearboxes</p>
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          {/* <Link to="/produk" className="card">
+          {/* <Link to="/produk" className="card float">
             <div className="card-details">
               <img
                 src=".\produk\prod-9.png"
@@ -316,67 +324,110 @@ export default function Beranda() {
       <section className="services">
         <div className="services-desc">
           <AnimatedContent
-          distance={150}
-              direction="horizontal"
-              reverse={true}
-              duration={1.5}
-              ease="power3.out"
-              initialOpacity={0}
-              animateOpacity
-              scale={1}
-              threshold={0.2}
-              delay={0.5}>
-          <Link to="/layanan" className="services-title-container">
-            <div className="decor-vert"></div>
-            <h2 className="services-title">Layanan Kami</h2>
-            <hr className="line" />
-          </Link>
+            distance={150}
+            direction="horizontal"
+            reverse={true}
+            duration={1.5}
+            ease="power3.out"
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.2}
+            delay={0.5}
+          >
+            <Link to="/layanan" className="services-title-container">
+              <div className="decor-vert mr-4 origin-left "></div>
+              <h2 className="services-title">Layanan Kami</h2>
+              <hr className="line" />
+            </Link>
           </AnimatedContent>
           <AnimatedContent
-          distance={150}
-              direction="horizontal"
-              reverse={true}
-              duration={1.25}
-              ease="power3.out"
-              initialOpacity={0}
-              animateOpacity
-              scale={1}
-              threshold={0.2}
-              delay={0.75}>
-          <p className="desc-p">
-            PT. Century Bearindo International menyediakan berbagai layanan
-            komprehensif untuk melengkapi penawaran produknya.
-          </p>
+            distance={150}
+            direction="horizontal"
+            reverse={true}
+            duration={1.25}
+            ease="power3.out"
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.2}
+            delay={0.75}
+          >
+            <p className="desc-p">
+              PT. Century Bearindo International menyediakan berbagai layanan
+              komprehensif untuk melengkapi penawaran produknya.
+            </p>
           </AnimatedContent>
         </div>
         <AnimatedContent
           distance={150}
-              direction="horizontal"
-              reverse={false}
-              duration={1.5}
-              ease="power3.out"
-              initialOpacity={0}
-              animateOpacity
-              scale={1}
-              threshold={0.2}
-              delay={0.5}>
-        <FlipCard/>
+          direction="horizontal"
+          reverse={false}
+          duration={1.5}
+          ease="power3.out"
+          initialOpacity={0}
+          animateOpacity
+          scale={1}
+          threshold={0.2}
+          delay={0.5}
+        >
+          <FlipCard />
         </AnimatedContent>
       </section>
       <section className="partners">
-        <h2>Our Partners</h2>
-        
+        <AnimatedContent
+          distance={150}
+          direction="horizontal"
+          reverse={true}
+          duration={1.5}
+          ease="power3.out"
+          initialOpacity={0}
+          animateOpacity
+          scale={1}
+          threshold={0.2}
+          delay={0.5}
+        >
+          <FlipGrid />
+        </AnimatedContent>
+
+        <div className="partners-desc">
+          <AnimatedContent
+            distance={150}
+            direction="horizontal"
+            reverse={false}
+            duration={1.5}
+            ease="power3.out"
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.2}
+            delay={0.5}
+          >
+            <div className="partners-title-container group">
+              <h2 className="partners-title">Mitra Kami</h2>
+              <div className="decor-vert mr-0 ml-4 origin-right group-hover:scale-x-2000 group-hover:scale-y-75 " />
+              <hr className="line" />
+            </div>
+          </AnimatedContent>
+          <AnimatedContent
+            distance={150}
+            direction="horizontal"
+            reverse={true}
+            duration={1.25}
+            ease="power3.out"
+            initialOpacity={0}
+            animateOpacity
+            scale={1}
+            threshold={0.2}
+            delay={0.75}
+          >
+            <p className="desc-p p-partners">
+              20+ tahun pengalaman dalam kerja sama dengan mitra merek
+              terpercaya.
+            </p>
+          </AnimatedContent>
+        </div>
       </section>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
     </>
   );
 }

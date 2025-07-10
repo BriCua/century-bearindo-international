@@ -45,6 +45,11 @@ header {
 .icon-link {
   display: flex;
   gap: 0.5em;
+  transition: all 0.3s;
+}
+
+.icon-link:hover{
+  transform: scale(1.05);
 }
 
 .icon:hover:not(.active) {
@@ -209,3 +214,13 @@ header {
     display: none;
   }
 }
+
+@media (max-width: 540px){
+  
+  .icon-desc:not(.show-always){
+    display: none;
+  }
+}
+
+
+

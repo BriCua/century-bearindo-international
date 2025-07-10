@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import App from './App.jsx';
 import Beranda from './pages/Beranda.jsx';
 import Tentang from './pages/Tentang.jsx';
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Beranda />} />
+          <Route path="beranda" element={<Navigate to="/" replace />} />
           <Route path="tentang" element={<Tentang />} />
           <Route path="produk" element={<Produk />} />
           <Route path="layanan" element={<Layanan />} />

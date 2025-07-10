@@ -97,7 +97,7 @@ export default function SpinCard() {
 
       {/* Hint */}
       
-      <div className="absolute left-1/2 -top-6 -translate-x-1/2 text-gray-500 text-sm font-medium ">
+      <div className="absolute left-1/2 -top-6 -translate-x-1/2 text-gray-500 text-sm font-medium">
       
       </div>
       
