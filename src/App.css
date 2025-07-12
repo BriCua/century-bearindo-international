@@ -119,4 +119,9 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Height transitions */
+
+
+#break-ratio{
+  aspect-ratio:unset;
+}
+

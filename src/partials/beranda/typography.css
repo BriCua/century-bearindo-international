@@ -41,6 +41,13 @@ h4{
   font-size: 2rem;
 }
 
+h5{
+  font-weight: 500;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
 p{
   font-family: var(--font-body);
 }

@@ -231,7 +231,9 @@ export default function Tentang() {
             <div
               className="float values-item"
               style={{ animationDelay: `${floatDelays[2]}s` }}
-            ></div>
+            >
+            
+            </div>
           </AnimatedContent>
 
           <AnimatedContent

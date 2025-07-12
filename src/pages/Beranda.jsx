@@ -212,7 +212,7 @@ export default function Beranda() {
           initialOpacity={0}
           className="card-container"
         >
-          <Link to="/produk" className="card float">
+          <Link to="/produk" className="card float w-64">
             <div className="card-details">
               <img
                 src=".\produk\prod-1.png"
@@ -224,7 +224,7 @@ export default function Beranda() {
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card float">
+          <Link to="/produk" className="card float w-64">
             <div className="card-details">
               <img
                 src=".\produk\prod-2.png"
@@ -236,7 +236,7 @@ export default function Beranda() {
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card float">
+          <Link to="/produk" className="card float w-64">
             <div className="card-details">
               <img
                 src="./produk/prod-3.png"
@@ -248,7 +248,7 @@ export default function Beranda() {
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card float">
+          <Link to="/produk" className="card float w-64">
             <div className="card-details">
               <img
                 src="./produk/prod-4.png"
@@ -260,7 +260,7 @@ export default function Beranda() {
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card float">
+          <Link to="/produk" className="card float w-64">
             <div className="card-details">
               <img
                 src="./produk/prod-5.png"
@@ -272,7 +272,7 @@ export default function Beranda() {
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card float">
+          <Link to="/produk" className="card float w-64">
             <div className="card-details">
               <img
                 src="./produk/prod-6.png"
@@ -284,7 +284,7 @@ export default function Beranda() {
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card float">
+          <Link to="/produk" className="card float w-64">
             <div className="card-details">
               <img
                 src="./produk/prod-7.png"
@@ -296,7 +296,7 @@ export default function Beranda() {
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card float">
+          <Link to="/produk" className="card float w-64">
             <div className="card-details">
               <img
                 src="./produk/prod-8.png"
@@ -308,7 +308,7 @@ export default function Beranda() {
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          {/* <Link to="/produk" className="card float">
+          {/* <Link to="/produk" className="card float w-64">
             <div className="card-details">
               <img
                 src=".\produk\prod-9.png"

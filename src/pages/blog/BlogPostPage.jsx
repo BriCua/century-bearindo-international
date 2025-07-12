@@ -1,22 +1,43 @@
+
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown';
+import sanityClient from '../../sanityClient';
+import { PortableText } from '@portabletext/react';
+import { formatDate } from '../../utils/date';
+import '../../partials/blog/post.css';
+
+const ptComponents = {
+  block: {
+    // Ex-level scope render
+    normal: ({children}) => <p className="portable-text-paragraph">{children}</p>,
+  },
+};
 
 export default function BlogPostPage() {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    // In a real application, you would fetch the post content from an API or a markdown file
-    // For now, we'll use dummy content
-    const dummyPost = {
-      frontmatter: {
-        title: `Title for ${slug}`,
-        date: '2025-07-12',
-      },
-      content: `This is the full content for the blog post with slug: **${slug}**.`
-    };
-    setPost(dummyPost);
+    sanityClient
+      .fetch(
+        `*[_type == "post" && slug.current == $slug][0]{
+          title,
+          slug,
+          publishedAt,
+          excerpt,
+          mainImage{
+            asset->{
+              _id,
+              url
+            }
+          },
+          body,
+          "name": author->name,
+        }`,
+        { slug }
+      )
+      .then((data) => setPost(data))
+      .catch(console.error);
   }, [slug]);
 
   if (!post) {
@@ -25,13 +46,16 @@ export default function BlogPostPage() {
 
   return (
     <>
-      <title>{post.frontmatter.title} - PT. Century Bearindo International</title>
-      <meta name="description" content={`Baca artikel terbaru dari PT. Century Bearindo International: ${post.frontmatter.title}`}/>
-      <div className="container">
-        <h1>{post.frontmatter.title}</h1>
-        <p>{post.frontmatter.date}</p>
-        <ReactMarkdown>{post.content}</ReactMarkdown>
+      <title>{post.title} - PT. Century Bearindo International</title>
+      <meta name="description" content={`Baca artikel terbaru dari PT. Century Bearindo International: ${post.title}`}/>
+      <div className="justify-self-center w-7/8 mt-16 mb-16">
+        <h1>{post.title}</h1>
+        <p className="post-date">{formatDate(post.publishedAt)}</p>
+        {post.mainImage && <img src={post.mainImage.asset.url} alt={post.title} />}
+        <h5 className='post-excerpt'>{post.excerpt}</h5>
+        <PortableText value={post.body} components={ptComponents} />
       </div>
     </>
   );
 }
+
