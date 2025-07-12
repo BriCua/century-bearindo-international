@@ -4,6 +4,14 @@ import { useParams } from 'react-router-dom';
 import sanityClient from '../../sanityClient';
 import { PortableText } from '@portabletext/react';
 import { formatDate } from '../../utils/date';
+import '../../partials/blog/post.css';
+
+const ptComponents = {
+  block: {
+    // Ex-level scope render
+    normal: ({children}) => <p className="portable-text-paragraph">{children}</p>,
+  },
+};
 
 export default function BlogPostPage() {
   const { slug } = useParams();
@@ -45,7 +53,7 @@ export default function BlogPostPage() {
         <p className="post-date">{formatDate(post.publishedAt)}</p>
         {post.mainImage && <img src={post.mainImage.asset.url} alt={post.title} />}
         <h5 className='post-excerpt'>{post.excerpt}</h5>
-        <PortableText value={post.body} />
+        <PortableText value={post.body} components={ptComponents} />
       </div>
     </>
   );

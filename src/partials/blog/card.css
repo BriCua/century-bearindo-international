@@ -6,7 +6,7 @@
   overflow: hidden;
   transition: transform 0.5s ease-out;
   width: 320px; /* w-80 */
-  height: 360px; /* h-110 */
+  height: 370px; /* h-110 */
   display: flex;
   flex-direction: column;
 }
@@ -61,7 +61,7 @@
   color: #6b7280;
   align-self: center;
   margin-top: auto;
-  
+
 }
 
 #break-ratio {
