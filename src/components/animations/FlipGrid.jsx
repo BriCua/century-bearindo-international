@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 
 // 18 partner items with unique image + link
 const partners = [
@@ -25,7 +25,7 @@ const partners = [
 export default function FlipGrid() {
   const cardRefs = useRef([]);
   const innerRefs = useRef([]);
-  const floatDelays = [0.3, 0.5, 0.7, 0.9, 1.1, 1.3, 1.5];
+  const floatDelays = useMemo(() => [0.3, 0.5, 0.7, 0.9, 1.1, 1.3, 1.5], []);
   const flipOffsets = useRef([]);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ export default function FlipGrid() {
 
       update();
     });
-  }, []);
+  }, [floatDelays]);
 
   return (
     <div className="grid grid-cols-3 gap-5 justify-center items-center">

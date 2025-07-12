@@ -5,6 +5,8 @@
    margin-top: 16em;
    justify-content: center;
    gap: 17.5%;
+   overflow: hidden;
+   padding: 1rem 0;
 }
 
 .partners-desc{
@@ -88,7 +90,7 @@
     transform-origin: center;
     text-align: center;
   }
-  .partners-title-container:hover {
+  .partners-title-container:hover .partners-title{
     transform: none;
     letter-spacing: 0.2em;
   }

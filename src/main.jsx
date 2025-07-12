@@ -13,23 +13,30 @@ import Katalog from './pages/Katalog.jsx';
 import Kontak from './pages/Kontak.jsx';
 import Galeri from './pages/Galeri.jsx';
 import Karir from './pages/Karir.jsx';
+import BlogPage from './pages/blog/BlogPage.jsx';
+import BlogPostPage from './pages/blog/BlogPostPage.jsx';
+import TrailingSlashEnforcer from './components/TrailingSlashEnforcer.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter basename="/century-bearindo-international/">
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<Beranda />} />
-          <Route path="beranda" element={<Navigate to="/" replace />} />
-          <Route path="tentang" element={<Tentang />} />
-          <Route path="produk" element={<Produk />} />
-          <Route path="layanan" element={<Layanan />} />
-          <Route path="katalog" element={<Katalog />} />
-          <Route path="kontak" element={<Kontak />} />
-          <Route path="galeri" element={<Galeri />} />
-          <Route path="karir" element={<Karir />} />
-        </Route>
-      </Routes>
+      <TrailingSlashEnforcer>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<Beranda />} />
+            <Route path="beranda" element={<Navigate to="/" replace />} />
+            <Route path="tentang" element={<Tentang />} />
+            <Route path="produk" element={<Produk />} />
+            <Route path="layanan" element={<Layanan />} />
+            <Route path="katalog" element={<Katalog />} />
+            <Route path="kontak" element={<Kontak />} />
+            <Route path="galeri" element={<Galeri />} />
+            <Route path="karir" element={<Karir />} />
+            <Route path="blog" element={<BlogPage />} />
+            <Route path="blog/:slug" element={<BlogPostPage />} />
+          </Route>
+        </Routes>
+      </TrailingSlashEnforcer>
     </BrowserRouter>
   </StrictMode>,
 )

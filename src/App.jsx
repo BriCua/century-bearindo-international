@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, Fragment } from "react";
 import { Icon } from "@iconify/react";
 import { Link, useLocation, Outlet } from "react-router-dom";
 import "./App.css";
@@ -8,6 +8,18 @@ import {
   FooterDivider,
   FooterIcon,
 } from "flowbite-react";
+
+const navLinks = [
+  { path: "/", label: "Beranda", id: "beranda" },
+  { path: "/tentang", label: "Tentang Kami", id: "tentang" },
+  { path: "/produk", label: "Produk", id: "produk" },
+  { path: "/layanan", label: "Layanan", id: "layanan" },
+  { path: "/katalog", label: "Katalog", id: "katalog" },
+  { path: "/kontak", label: "Kontak", id: "kontak" },
+  { path: "/galeri", label: "Galeri", id: "galeri" },
+  { path: "/blog", label: "Blog", id: "blog" },
+  { path: "/karir", label: "Karir", id: "karir" },
+];
 
 function App() {
   const location = useLocation();
@@ -42,7 +54,11 @@ function App() {
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
   }, [dropdownOpen]);
 
   return (
@@ -162,62 +178,16 @@ function App() {
           alt="century bearindo international logo"
         />
         <div className="menu-group">
-          <Link
-            to="/"
-            className={`menu-item${isActive("/") ? " active" : ""}`}
-            id="beranda"
-          >
-            Beranda
-          </Link>
-          <Link
-            to="/tentang"
-            className={`menu-item${isActive("/tentang") ? " active" : ""}`}
-            id="tentang"
-          >
-            Tentang Kami
-          </Link>
-          <Link
-            to="/produk"
-            className={`menu-item${isActive("/produk") ? " active" : ""}`}
-            id="produk"
-          >
-            Produk
-          </Link>
-          <Link
-            to="/layanan"
-            className={`menu-item${isActive("/layanan") ? " active" : ""}`}
-            id="layanan"
-          >
-            Layanan
-          </Link>
-          <Link
-            to="/katalog"
-            className={`menu-item${isActive("/katalog") ? " active" : ""}`}
-            id="katalog"
-          >
-            Katalog
-          </Link>
-          <Link
-            to="/kontak"
-            className={`menu-item${isActive("/kontak") ? " active" : ""}`}
-            id="kontak"
-          >
-            Kontak
-          </Link>
-          <Link
-            to="/galeri"
-            className={`menu-item${isActive("/galeri") ? " active" : ""}`}
-            id="galeri"
-          >
-            Galeri
-          </Link>
-          <Link
-            to="/karir"
-            className={`menu-item${isActive("/karir") ? " active" : ""}`}
-            id="karir"
-          >
-            Karir
-          </Link>
+          {navLinks.map((link) => (
+            <Link
+              key={link.id}
+              to={link.path}
+              className={`menu-item${isActive(link.path) ? " active" : ""}`}
+              id={link.id}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
         <div style={{ position: "relative", display: "inline-block" }}>
           <button
@@ -228,78 +198,26 @@ function App() {
             <Icon icon={"line-md:close-to-menu-alt-transition"} />
           </button>
           {dropdownOpen && (
-            <div className="menu-dropdown" ref={dropdownRef}>
-              <Link
-                to="/"
-                className={`menu-item${isActive("/") ? " active" : ""}`}
-                style={{ padding: "0.75em 1.5em" }}
-                onClick={() => setDropdownOpen(false)}
-              >
-                Beranda
-              </Link>
-              <hr />
-              <Link
-                to="/tentang"
-                className={`menu-item${isActive("/tentang") ? " active" : ""}`}
-                style={{ padding: "0.75em 1.5em" }}
-                onClick={() => setDropdownOpen(false)}
-              >
-                Tentang Kami
-              </Link>
-              <hr />
-              <Link
-                to="/produk"
-                className={`menu-item${isActive("/produk") ? " active" : ""}`}
-                style={{ padding: "0.75em 1.5em" }}
-                onClick={() => setDropdownOpen(false)}
-              >
-                Produk
-              </Link>
-              <hr />
-              <Link
-                to="/layanan"
-                className={`menu-item${isActive("/layanan") ? " active" : ""}`}
-                style={{ padding: "0.75em 1.5em" }}
-                onClick={() => setDropdownOpen(false)}
-              >
-                Layanan
-              </Link>
-              <hr />
-              <Link
-                to="/katalog"
-                className={`menu-item${isActive("/katalog") ? " active" : ""}`}
-                style={{ padding: "0.75em 1.5em" }}
-                onClick={() => setDropdownOpen(false)}
-              >
-                Katalog
-              </Link>
-              <hr />
-              <Link
-                to="/kontak"
-                className={`menu-item${isActive("/kontak") ? " active" : ""}`}
-                style={{ padding: "0.75em 1.5em" }}
-                onClick={() => setDropdownOpen(false)}
-              >
-                Kontak
-              </Link>
-              <hr />
-              <Link
-                to="/galeri"
-                className={`menu-item${isActive("/galeri") ? " active" : ""}`}
-                style={{ padding: "0.75em 1.5em" }}
-                onClick={() => setDropdownOpen(false)}
-              >
-                Galeri
-              </Link>
-              <hr />
-              <Link
-                to="/karir"
-                className={`menu-item${isActive("/karir") ? " active" : ""}`}
-                style={{ padding: "0.75em 1.5em" }}
-                onClick={() => setDropdownOpen(false)}
-              >
-                Karir
-              </Link>
+            <div
+              className="menu-dropdown"
+              ref={dropdownRef}
+              style={{ maxHeight: "calc(100vh - 120px)", overflowY: "auto" }}
+            >
+              {navLinks.map((link, index) => (
+                <Fragment key={link.id}>
+                  <Link
+                    to={link.path}
+                    className={`menu-item${
+                      isActive(link.path) ? " active" : ""
+                    }`}
+                    style={{ padding: "0.75em 1.5em" }}
+                    onClick={() => setDropdownOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                  {index < navLinks.length - 1 && <hr />}
+                </Fragment>
+              ))}
             </div>
           )}
         </div>
@@ -314,11 +232,11 @@ function App() {
       <footer className="h-48">
         <div className="contact">
           <span>
-            <img id="logo-footer" src="./identity/logo-footer.webp"></img>
+            <img id="logo-footer" src={`${import.meta.env.BASE_URL}identity/logo-footer.webp`}></img>
           </span>
           <span>
             <ul>
-              <div className="footer-title">Hubungi Kami :</div>
+              <div className="list-title">Hubungi Kami :</div>
               <li>
                 <span className="icon" id="phone">
                   <a
@@ -405,7 +323,7 @@ function App() {
           </span>
           <span>
             <ul>
-              <div className="footer-title">Kantor Kami :</div>
+              <div className="list-title">Kantor Kami :</div>
               <li>Ruko Mutiara Dupak 65/A-26 Jl. Dupak, Gundih, Kec.</li>
               <li>Bubutan Kota Surabaya, Jawa Timur</li>
               <li>Senin - Jumat : 08.00 - 17.00</li>

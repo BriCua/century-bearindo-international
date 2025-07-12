@@ -4,6 +4,7 @@
   align-items: center;
   margin: 8em 0 2em 0;
   width: 100%;
+  overflow: hidden;
 }
 
 .showcase-title {
@@ -35,15 +36,11 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 85%;
   flex-wrap: wrap;
 }
 
-@media (max-width: 1440px) {
-  .card-container {
-    width: 100%;
-  }
-}
+
 
 .card {
   width: 100%;

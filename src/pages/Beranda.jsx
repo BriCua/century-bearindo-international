@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
-import FadeContent from "../FadeContent";
-import AnimatedContent from "../AnimatedContent";
+import FadeContent from "../components/animations/FadeContent";
+import AnimatedContent from "../components/animations/AnimatedContent";
 import { Link } from "react-router-dom";
-import FlipCard from "../FlipCard";
-import FlipGrid from "../FlipGrid";
+import FlipCard from "../components/animations/FlipCard";
+import FlipGrid from "../components/animations/FlipGrid";
 
 // import { Tooltip } from "flowbite-react";
 //import InfiniteScroll from '../InfiniteScroll';
@@ -33,7 +33,7 @@ export default function Beranda() {
       changecarousel((carouselIndex + 1) % carouselImages.length);
     }, 6000);
     return () => clearInterval(interval);
-  }, [carouselIndex]);
+  }, [carouselIndex, carouselImages.length]);
 
   useEffect(() => {
     const floatElements = document.querySelectorAll(".float");
@@ -126,7 +126,7 @@ export default function Beranda() {
             initialOpacity={0}
             className="desc-image-container"
           >
-            <img src="./identity/about.webp" className="desc-image" />
+            <img src={`${import.meta.env.BASE_URL}identity/about.webp`} className="desc-image" />
           </FadeContent>
           <div className="desc-text">
             <AnimatedContent
@@ -185,7 +185,7 @@ export default function Beranda() {
           </div>
         </div>
       </section>
-      <section className="showcase">
+      <section className="showcase overflow-hidden">
         <AnimatedContent
           distance={150}
           direction="vertical"
@@ -197,10 +197,11 @@ export default function Beranda() {
           scale={1}
           threshold={0.2}
           delay={0.5}
-          className="w-dvw"
         >
-          <h2 className="showcase-title"> Produk Unggulan </h2>
-          <hr className="line" />
+          <Link to="/produk">
+            <h2 className="showcase-title"> Produk Unggulan </h2>
+            <hr className="line" />
+          </Link>
         </AnimatedContent>
         <br />
 
@@ -321,7 +322,7 @@ export default function Beranda() {
           </Link> */}
         </FadeContent>
       </section>
-      <section className="services">
+      <section className="services ">
         <div className="services-desc">
           <AnimatedContent
             distance={150}
@@ -374,7 +375,7 @@ export default function Beranda() {
           <FlipCard />
         </AnimatedContent>
       </section>
-      <section className="partners">
+      <section className="partners overflow-hidden">
         <AnimatedContent
           distance={150}
           direction="horizontal"

@@ -183,7 +183,10 @@ header {
   display: flex;
   flex-direction: column;
   font-size: 1.5em;
+  max-height: calc(100vh- 10rem);
+  overflow: auto;
 }
+
 
 .menu-dropdown .menu-item.active {
   font-weight: bold;

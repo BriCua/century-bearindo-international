@@ -18,6 +18,8 @@
   gap: 17.5%;
   font-size: 1rem;
   margin-top: 16em;
+  overflow-x:hidden;
+  padding: 1rem 0;
 }
 
 @media (max-width: 1100px) {

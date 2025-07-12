@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import {
-  motion,
   useMotionValue,
   useAnimation,
   useTransform,
