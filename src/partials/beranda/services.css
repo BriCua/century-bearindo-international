@@ -19,6 +19,7 @@
   font-size: 1rem;
   margin-top: 16em;
   overflow-x:hidden;
+  overflow-y: hidden;
   padding: 1rem 0;
 }
 
@@ -128,8 +129,11 @@
   transition: all 0.5s ease-out;
   height: 24.25em;
   width: 20em;
-  box-shadow: 4px 4px 8px #00000088;
   border-radius: 1em;
+}
+
+.shadow-color{
+ box-shadow: 4px 4px 8px #00000088; 
 }
 
 .flipcard:hover {

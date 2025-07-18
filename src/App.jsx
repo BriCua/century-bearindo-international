@@ -14,11 +14,11 @@ const navLinks = [
   { path: "/tentang", label: "Tentang Kami", id: "tentang" },
   { path: "/produk", label: "Produk", id: "produk" },
   { path: "/layanan", label: "Layanan", id: "layanan" },
-  { path: "/katalog", label: "Katalog", id: "katalog" },
-  { path: "/kontak", label: "Kontak", id: "kontak" },
-  { path: "/galeri", label: "Galeri", id: "galeri" },
-  { path: "/blog", label: "Blog", id: "blog" },
+  /* { path: "/katalog", label: "Katalog", id: "katalog" }, */
+  /* { path: "/galeri", label: "Galeri", id: "galeri" }, */
+  { path: "/highlights", label: "Highlights", id: "highlights" },
   { path: "/karir", label: "Karir", id: "karir" },
+  { path: "/kontak", label: "Kontak", id: "kontak" },
 ];
 
 function App() {
@@ -181,7 +181,7 @@ function App() {
           {navLinks.map((link) => (
             <Link
               key={link.id}
-              to={link.path}
+              to={`${link.path}${location.search}`}
               className={`menu-item${isActive(link.path) ? " active" : ""}`}
               id={link.id}
             >
@@ -206,7 +206,7 @@ function App() {
               {navLinks.map((link, index) => (
                 <Fragment key={link.id}>
                   <Link
-                    to={link.path}
+                    to={`${link.path}${location.search}`}
                     className={`menu-item${
                       isActive(link.path) ? " active" : ""
                     }`}
@@ -232,7 +232,10 @@ function App() {
       <footer className="h-48">
         <div className="contact">
           <span>
-            <img id="logo-footer" src={`${import.meta.env.BASE_URL}identity/logo-footer.webp`}></img>
+            <img
+              id="logo-footer"
+              src={`${import.meta.env.BASE_URL}identity/logo-footer.webp`}
+            ></img>
           </span>
           <span>
             <ul>
@@ -315,7 +318,9 @@ function App() {
                         className={emailHovered ? "icon-hover" : "icon-default"}
                       />
                     </div>
-                    <span className="icon-desc show-always">cbi.sby@id.intbearing.com</span>
+                    <span className="icon-desc show-always">
+                      cbi.sby@id.intbearing.com
+                    </span>
                   </a>
                 </span>
               </li>
@@ -330,8 +335,10 @@ function App() {
             </ul>
           </span>
         </div>
-        <hr className="border-[#f4efef88]  "/>
-        <div className="copyright">&copy; COPYRIGHT – CENTURY-BEARINDO-INTERNATIONAL.COM</div>
+        <hr className="border-[#f4efef88]  " />
+        <div className="copyright">
+          &copy; COPYRIGHT – CENTURY-BEARINDO-INTERNATIONAL.COM
+        </div>
       </footer>
     </>
   );

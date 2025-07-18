@@ -141,7 +141,7 @@ export default function Beranda() {
               threshold={0.2}
               delay={0.5}
             >
-              <h1 className="desc-title">
+              <h1 className="desc-title mb-[0.5em]">
                 Distributor & Supplier Bearing Surabaya
               </h1>
             </AnimatedContent>
@@ -161,7 +161,7 @@ export default function Beranda() {
                 Bergerak di bidang solusi bearing dan komponen mekanikal dari
                 merek-merek global seperti SKF, FAG, NTN, dan NSK. Mengutamakan
                 kebutuhan industri serta mendukung performa dan efisiensi
-                operasional secara maksimal. <strong>- Sejak tahun 2003</strong>
+                operasional secara maksimal. <strong className="mt-2">- Sejak tahun 2003</strong>
               </p>
             </AnimatedContent>
             <AnimatedContent
@@ -212,7 +212,7 @@ export default function Beranda() {
           initialOpacity={0}
           className="card-container"
         >
-          <Link to="/produk" className="card float w-64">
+          <Link to="/produk?open=item1" className="card float w-64">
             <div className="card-details">
               <img
                 src=".\produk\prod-1.png"
@@ -224,7 +224,7 @@ export default function Beranda() {
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card float w-64">
+          <Link to="/produk?open=item2" className="card float w-64">
             <div className="card-details">
               <img
                 src=".\produk\prod-2.png"
@@ -236,7 +236,7 @@ export default function Beranda() {
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card float w-64">
+          <Link to="/produk?open=item3" className="card float w-64">
             <div className="card-details">
               <img
                 src="./produk/prod-3.png"
@@ -248,7 +248,7 @@ export default function Beranda() {
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card float w-64">
+          <Link to="/produk?open=item4" className="card float w-64">
             <div className="card-details">
               <img
                 src="./produk/prod-4.png"
@@ -260,7 +260,7 @@ export default function Beranda() {
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card float w-64">
+          <Link to="/produk?open=item5" className="card float w-64">
             <div className="card-details">
               <img
                 src="./produk/prod-5.png"
@@ -272,7 +272,7 @@ export default function Beranda() {
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card float w-64">
+          <Link to="/produk?open=item6" className="card float w-64">
             <div className="card-details">
               <img
                 src="./produk/prod-6.png"
@@ -284,7 +284,7 @@ export default function Beranda() {
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card float w-64">
+          <Link to="/produk?open=item7" className="card float w-64">
             <div className="card-details">
               <img
                 src="./produk/prod-7.png"
@@ -296,7 +296,7 @@ export default function Beranda() {
             </div>
             <button className="card-button">Selengkapnya</button>
           </Link>
-          <Link to="/produk" className="card float w-64">
+          <Link to="/produk?open=item9" className="card float w-64">
             <div className="card-details">
               <img
                 src="./produk/prod-8.png"

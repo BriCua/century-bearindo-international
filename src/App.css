@@ -125,3 +125,7 @@ body {
   aspect-ratio:unset;
 }
 
+.def-ease-out{
+  transition: ease-out 0.5s all;
+}
+

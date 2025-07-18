@@ -5,7 +5,7 @@ import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'Century Bearindo Blog',
+  title: 'Century Bearindo Highlights',
 
   projectId: 'gpuveli0',
   dataset: 'production',

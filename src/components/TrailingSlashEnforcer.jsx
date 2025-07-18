@@ -1,17 +1,17 @@
-import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, Navigate } from "react-router-dom";
 
-const TrailingSlashEnforcer = ({ children }) => {
+export default function TrailingSlashEnforcer({ children }) {
   const location = useLocation();
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!location.pathname.endsWith('/')) {
-      navigate(location.pathname + '/', { replace: true });
-    }
-  }, [location, navigate]);
+  // If pathname ends with "/" but isn't the root path
+  if (
+    location.pathname.length > 1 &&
+    location.pathname.endsWith("/")
+  ) {
+    // Remove trailing slash, preserve query + hash
+    const newPath = location.pathname.slice(0, -1) + location.search + location.hash;
+    return <Navigate to={newPath} replace />;
+  }
 
   return children;
-};
-
-export default TrailingSlashEnforcer;
+}

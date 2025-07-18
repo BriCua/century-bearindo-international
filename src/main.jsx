@@ -9,12 +9,10 @@ import Beranda from './pages/Beranda.jsx';
 import Tentang from './pages/Tentang.jsx';
 import Produk from './pages/Produk.jsx';
 import Layanan from './pages/Layanan.jsx';
-import Katalog from './pages/Katalog.jsx';
 import Kontak from './pages/Kontak.jsx';
-import Galeri from './pages/Galeri.jsx';
 import Karir from './pages/Karir.jsx';
-import BlogPage from './pages/blog/BlogPage.jsx';
-import BlogPostPage from './pages/blog/BlogPostPage.jsx';
+import HighlightsPage from './pages/highlights/HighlightsPage.jsx';
+import HighlightsPostPage from './pages/highlights/HighlightsPostPage.jsx';
 import TrailingSlashEnforcer from './components/TrailingSlashEnforcer.jsx';
 
 createRoot(document.getElementById('root')).render(
@@ -28,12 +26,12 @@ createRoot(document.getElementById('root')).render(
             <Route path="tentang" element={<Tentang />} />
             <Route path="produk" element={<Produk />} />
             <Route path="layanan" element={<Layanan />} />
-            <Route path="katalog" element={<Katalog />} />
+            {/* <Route path="katalog" element={<Katalog />} /> */}
             <Route path="kontak" element={<Kontak />} />
-            <Route path="galeri" element={<Galeri />} />
+            {/* <Route path="galeri" element={<Galeri />} /> */}
             <Route path="karir" element={<Karir />} />
-            <Route path="blog" element={<BlogPage />} />
-            <Route path="blog/:slug" element={<BlogPostPage />} />
+            <Route path="highlights" element={<HighlightsPage />} />
+            <Route path="highlights/:slug" element={<HighlightsPostPage />} />
           </Route>
         </Routes>
       </TrailingSlashEnforcer>

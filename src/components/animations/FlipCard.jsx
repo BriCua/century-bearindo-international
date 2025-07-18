@@ -1,7 +1,6 @@
 // SpinCard.jsx
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import AnimatedContent from "./AnimatedContent";
 
 const data = [
   {
@@ -55,7 +54,7 @@ export default function SpinCard() {
       onClick={handleClick}
     >
       <div
-        className={`relative w-full h-full rounded-xl shadow-lg transition-transform duration-300 transform-style-3d ${
+        className={`relative w-full h-full rounded-xl shadow-lg shadow-color transition-transform duration-300 transform-style-3d ${
           rotating ? "rotate-y-180" : ""
         }`}
       >
@@ -66,7 +65,7 @@ export default function SpinCard() {
             alt={title}
             className="h-60 w-full object-cover"
           />
-          <div className="p-4 h-1/2">
+          <div className="p-4 ">
             <div className="dash-grey">
               <div className="dash-red"></div>
             </div>
@@ -79,7 +78,7 @@ export default function SpinCard() {
             <Link to={link} className="cta">
               Baca Selengkapnya
             </Link>
-            <span className="hint delay-1000 place-self-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out text-gray-500 text-sm font-medium hint">Klik Kartu &gt;</span>
+            <span className="hint delay-1000 place-self-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out text-gray-500 text-sm font-medium hint">Klik Kartu </span>
           </div>
           </div>
         </div>
@@ -104,3 +103,5 @@ export default function SpinCard() {
     </div>
   );
 }
+
+

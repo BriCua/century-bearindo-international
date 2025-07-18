@@ -150,12 +150,12 @@ header {
   font-weight: bold;
   color: #fff;
   border-radius: 1.5em;
-  box-shadow: 0 4px 24px 0 #e6000055, 0 0 1em #fff2;
+  box-shadow: 0 2px 24px 0 #e6000055, 0 0 1em #fff2;
   padding: 0.5em 1.5em;
 }
 
 .menu-item.active:hover {
-  text-shadow: 0 0 12px #e60000;
+  text-shadow: 0 0 12px 0 #e60000;
 }
 
 #menu-button {

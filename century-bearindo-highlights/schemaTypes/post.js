@@ -36,7 +36,7 @@ export default {
       title: 'Excerpt',
       type: 'text',
       rows: 3,
-      description: 'A short summary of the post to show on the main blog page.',
+      description: 'A short summary of the post to show on the highlights page.',
       validation: Rule => Rule.max(200).warning('An excerpt should be short, ideally under 200 characters.')
     },
     {
