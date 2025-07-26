@@ -28,6 +28,7 @@
 }
 
 :root {
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --color-red: #e60000;
   --color-black: #000;
   --shadow-black-ligther: #000000bb;
@@ -126,6 +127,6 @@ body {
 }
 
 .def-ease-out{
-  transition: ease-out 0.5s all;
+  transition: var(--ease-out) 0.5s all;
 }
 

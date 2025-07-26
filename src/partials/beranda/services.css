@@ -52,7 +52,7 @@
   width: fit-content;
   margin-top: 4em;
   font-family: var(--font-heading);
-  transition: all 0.5s ease-out;
+  transition: all 0.5s var(--ease-out);
   display: flex;
   align-items: center;
 }
@@ -62,7 +62,7 @@
   height: 1.1em;
   width: 0.1em;
   padding-top: 1em;
-  transition: all 0.5s ease-out;
+  transition: all 0.5s var(--ease-out);
   font-size: 3rem;
 }
 .services-title-container:hover .decor-vert {
@@ -75,7 +75,7 @@
 }
 
 .services-title {
-  transition: all 0.5s ease-out;
+  transition: all 0.5s var(--ease-out);
 }
 
 @media (min-width: 768px){
@@ -126,7 +126,7 @@
 }
 
 .flipcard {
-  transition: all 0.5s ease-out;
+  transition: all 0.5s var(--ease-out);
   height: 24.25em;
   width: 20em;
   border-radius: 1em;
@@ -146,7 +146,7 @@
   background-color: var(--color-red);
   height: 3px;
   width: 0%;
-  transition: all 1s ease-out;
+  transition: all 1s var(--ease-out);
 }
 
 .dash-grey {
@@ -181,7 +181,7 @@
 }
 .cta {
   font-weight: 600;
-  transition: all 0.5s ease-out;
+  transition: all 0.5s var(--ease-out);
   overflow: hidden;
   position: relative;
   font-family: var(--font-button);

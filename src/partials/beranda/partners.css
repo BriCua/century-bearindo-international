@@ -17,14 +17,14 @@
 }
 
 .partners-title{
-    transition: all 0.5s ease-out;
+    transition: all 0.5s var(--ease-out);
 }
 
 .partners-title-container {
   width: fit-content;
   margin-top: 4em;
   font-family: var(--font-heading);
-  transition: all 0.5s ease-out;
+  transition: all 0.5s var(--ease-out);
   display: flex;
   align-items: center;
 }
@@ -43,7 +43,7 @@
   height: 1.1em;
   width: 0.1em;
   padding-top: 1em;
-  transition: all 0.5s ease-out;
+  transition: all 0.5s var(--ease-out);
   font-size: 3rem;
 }
 

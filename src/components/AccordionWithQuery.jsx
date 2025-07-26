@@ -1,12 +1,11 @@
 // AccordionWithQuery.jsx
 import * as Accordion from "@radix-ui/react-accordion";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
-import { useEffect } from "react";
+import "../partials/accordion.css";
 
-export default function AccordionWithQuery() {
+export default function AccordionWithQuery({ items }) {
   const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
 
   // Get current open item from query
   const openItem = searchParams.get("open") || "";
@@ -27,34 +26,32 @@ export default function AccordionWithQuery() {
       collapsible
       value={openItem}
       onValueChange={handleValueChange}
-      className="w-full"
+      className="AccordionRoot"
     >
-      <Accordion.Item value="item1">
-        <Accordion.Header>
-          <Accordion.Trigger>Item 1</Accordion.Trigger>
-        </Accordion.Header>
-        <Accordion.Content>Content for Item 1</Accordion.Content>
-      </Accordion.Item>
-
-      <Accordion.Item value="item2">
-        <Accordion.Header>
-          <Accordion.Trigger  className="text-[1.5rem] flex flex-row items-center justify-between">
-            <span>Item 2</span>
-            <ChevronDownIcon className="AccordionChevron" aria-hidden />
-          </Accordion.Trigger>
-        </Accordion.Header>
-        <Accordion.Content>Content for Item 2</Accordion.Content>
-      </Accordion.Item>
-
-      <Accordion.Item value="item3">
-        <Accordion.Header>
-          <Accordion.Trigger className="text-[1.5rem] flex flex-row items-center justify-between">
-            <span>Item 3</span>
-            <ChevronDownIcon className="AccordionChevron" aria-hidden />
-          </Accordion.Trigger>
-        </Accordion.Header>
-        <Accordion.Content>Content for Item 3</Accordion.Content>
-      </Accordion.Item>
+      {items.map((item) => (
+        <Accordion.Item value={item.id} key={item.id} className="AccordionItem">
+          <Accordion.Header className="AccordionHeader">
+            <Accordion.Trigger className="AccordionTrigger">
+              <span><h5>{item.title}</h5></span>
+              <ChevronDownIcon className="AccordionChevron" aria-hidden />
+            </Accordion.Trigger>
+          </Accordion.Header>
+          <Accordion.Content className="AccordionContent">
+            <div className="mt-4 w-9/10  border-[#e60000] border-2 rounded-lg"/>
+  <div className="mt-4 mb-4 ml-12 mr-12">
+    {Array.isArray(item.content) ? (
+      item.content.map((paragraph, index) => (
+        <p key={index} style={{ marginBottom: '1rem' }}>{paragraph}</p>
+      ))
+    ) : (
+      <p>{item.content}</p>
+    )}
+  </div>
+</Accordion.Content>
+        </Accordion.Item>
+      ))}
     </Accordion.Root>
   );
 }
+
+

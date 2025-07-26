@@ -39,7 +39,7 @@ header {
 }
 
 .icon{
-  transition: all 0.3s ease-out;
+  transition: all 0.3s var(--ease-out);
 }
 
 .icon-link {
@@ -64,7 +64,7 @@ header {
   width: 1.5em;
   height: 1.5em;
   display: flex;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s var(--ease-out);
 }
 
 .icon-container:hover {
@@ -80,12 +80,12 @@ header {
 
 .icon .icon-default {
   display: flex;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s var(--ease-out);
 }
 
 .icon .icon-hover {
   display: none;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s var(--ease-out);
 }
 
 .icon:hover .icon-default {
@@ -130,7 +130,7 @@ header {
 
 .menu-item {
   font-size: 0.9em;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s var(--ease-out);
   /* font-weight: bold; */
 }
 
@@ -161,7 +161,7 @@ header {
 #menu-button {
   align-self: center;
   display: none;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s var(--ease-out);
 }
 
 #menu-button:active {

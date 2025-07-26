@@ -54,7 +54,7 @@
   z-index: 2;
   padding: 0.1em 0.1em;
   border-radius: 0.4em;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s var(--ease-out);
 }
 @media (max-width: 768px) {
   .carousel-arrow {

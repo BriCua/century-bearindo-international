@@ -5,6 +5,7 @@ import AnimatedContent from "../components/animations/AnimatedContent";
 import { Link } from "react-router-dom";
 import FlipCard from "../components/animations/FlipCard";
 import FlipGrid from "../components/animations/FlipGrid";
+import { products } from "../data/products";
 
 // import { Tooltip } from "flowbite-react";
 //import InfiniteScroll from '../InfiniteScroll';
@@ -207,119 +208,29 @@ export default function Beranda() {
 
         <FadeContent
           blur={true}
-          duration={1000}
+          duration={500}
           easing="ease-out"
           initialOpacity={0}
           className="card-container"
         >
-          <Link to="/produk?open=item1" className="card float w-64">
-            <div className="card-details">
-              <img
-                src=".\produk\prod-1.png"
-                className="card-img"
-                alt="Bearings and Housing"
-              />
-              <hr className="border-solid" />
-              <p className="card-title">Bearings & Housing</p>
-            </div>
-            <button className="card-button">Selengkapnya</button>
-          </Link>
-          <Link to="/produk?open=item2" className="card float w-64">
-            <div className="card-details">
-              <img
-                src=".\produk\prod-2.png"
-                className="card-img"
-                alt="Bearing Otomotif"
-              />
-              <hr className="border-solid" />
-              <p className="card-title">Bearing Otomotif</p>
-            </div>
-            <button className="card-button">Selengkapnya</button>
-          </Link>
-          <Link to="/produk?open=item3" className="card float w-64">
-            <div className="card-details">
-              <img
-                src="./produk/prod-3.png"
-                className="card-img"
-                alt="Wiper Blades"
-              />
-              <hr className="border-solid" />
-              <p className="card-title">Wiper Blades</p>
-            </div>
-            <button className="card-button">Selengkapnya</button>
-          </Link>
-          <Link to="/produk?open=item4" className="card float w-64">
-            <div className="card-details">
-              <img
-                src="./produk/prod-4.png"
-                className="card-img"
-                alt="Maintenance Tools"
-              />
-              <hr className="border-solid" />
-              <p className="card-title">Maintenance Tools</p>
-            </div>
-            <button className="card-button">Selengkapnya</button>
-          </Link>
-          <Link to="/produk?open=item5" className="card float w-64">
-            <div className="card-details">
-              <img
-                src="./produk/prod-5.png"
-                className="card-img"
-                alt="Hydraulic Tools"
-              />
-              <hr className="border-solid" />
-              <p className="card-title">Hydraulic Tools</p>
-            </div>
-            <button className="card-button">Selengkapnya</button>
-          </Link>
-          <Link to="/produk?open=item6" className="card float w-64">
-            <div className="card-details">
-              <img
-                src="./produk/prod-6.png"
-                className="card-img"
-                alt="Pneumatic Control"
-              />
-              <hr className="border-solid" />
-              <p className="card-title">Pneumatic Control</p>
-            </div>
-            <button className="card-button">Selengkapnya</button>
-          </Link>
-          <Link to="/produk?open=item7" className="card float w-64">
-            <div className="card-details">
-              <img
-                src="./produk/prod-7.png"
-                className="card-img"
-                alt="Conveyour Belts & V-Belts"
-              />
-              <hr className="border-solid" />
-              <p className="card-title">Conveyor Belts & V-Belts</p>
-            </div>
-            <button className="card-button">Selengkapnya</button>
-          </Link>
-          <Link to="/produk?open=item9" className="card float w-64">
-            <div className="card-details">
-              <img
-                src="./produk/prod-8.png"
-                className="card-img"
-                alt="Motor & Gearboxes"
-              />
-              <hr className="border-solid" />
-              <p className="card-title">Motor & Gearboxes</p>
-            </div>
-            <button className="card-button">Selengkapnya</button>
-          </Link>
-          {/* <Link to="/produk" className="card float w-64">
-            <div className="card-details">
-              <img
-                src=".\produk\prod-9.png"
-                className="card-img"
-                alt="produk"
-              />
-              <hr className="border-solid" />
-              <p className="card-title">Belt Fastener & Cleaning System</p>
-            </div>
-            <button className="card-button">Selengkapnya</button>
-          </Link> */}
+          {products.map((product) => (
+            <Link
+              to={`/produk?open=${product.id}`}
+              className="card float w-64"
+              key={product.id}
+            >
+              <div className="card-details">
+                <img
+                  src={product.images[0]}
+                  className="card-img"
+                  alt={product.title}
+                />
+                <hr className="border-solid" />
+                <p className="card-title">{product.title}</p>
+              </div>
+              <button className="card-button">Selengkapnya</button>
+            </Link>
+          ))}
         </FadeContent>
       </section>
       <section className="services ">

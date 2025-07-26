@@ -42,7 +42,7 @@
   padding: 0.75rem 1.25rem 0.75rem 1.5rem;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s var(--ease-out);
 }
 
 
@@ -57,7 +57,7 @@
   left: 0.5rem;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.3s ease-out;
+  transition: transform 0.3s var(--ease-out);
 }
 
 .title::after{
@@ -103,7 +103,7 @@
   position: relative;
   overflow: hidden;
   flex-wrap: wrap;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s var(--ease-out);
 }
 
 .boxed-left-white::before{
@@ -125,7 +125,7 @@
   left: 0;
   background-color: #e60000;
   transform: scaleY(0);
-  transition: transform 0.3s ease-out;
+  transition: transform 0.3s var(--ease-out);
   transform-origin: bottom;
 }
 
@@ -166,7 +166,7 @@
   right: 0;
   background-color: #e60000;
   transform: scaleY(0);
-  transition: transform 0.3s ease-out;
+  transition: transform 0.3s var(--ease-out);
   transform-origin: top;
 }
 
@@ -206,7 +206,7 @@
   padding: 2rem 4rem 2rem 10rem;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s var(--ease-out);
   margin-bottom: 3rem;
 }
 
@@ -222,7 +222,7 @@
   padding: 2rem 10rem 2rem 4rem;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease-out;
+  transition: all 0.3s var(--ease-out);
   margin-top: 4rem;
   justify-self: flex-end;
 }

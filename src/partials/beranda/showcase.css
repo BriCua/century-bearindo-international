@@ -12,7 +12,7 @@
   text-align: center;
   margin-top: 2rem;
   letter-spacing: 0.025em;
-  transition: all 0.5s ease-out;
+  transition: all 0.5s var(--ease-out);
 }
 
 
@@ -23,7 +23,7 @@
 .line {
   border: 1.5px solid var(--color-red);
   width: 20%;
-  transition: all 0.5s ease-out;
+  transition: all 0.5s var(--ease-out);
   justify-self: center;
 }
 
@@ -50,7 +50,7 @@
   padding: 1.25em;
   text-align: justify;
   border: 2px solid #c3c6ce;
-  transition: 0.5s ease-out;
+  transition: 0.5s var(--ease-out);
   overflow: visible;
   margin: 1.5em;
   display: block;
@@ -81,7 +81,7 @@
   left: 50%;
   bottom: 0;
   opacity: 0;
-  transition: 0.3s ease-out;
+  transition: 0.3s var(--ease-out);
 }
 
 .text-body {
@@ -98,7 +98,7 @@
   font-family: 'Nunito Sans', serif;
   margin-bottom: 0;
   text-shadow: none;
-  transition: transform 0.3s ease-out;
+  transition: transform 0.3s var(--ease-out);
   text-align: center;
 }
 
@@ -134,10 +134,9 @@
 .card:hover {
   border-color: #e60000;
   box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
-  transform: scale(1.1);
 }
 .border-solid {
-  transition: all 0.5s ease-out;
+  transition: all 0.5s var(--ease-out);
   border: 1.275px solid #f9f9f9;
   width: 0%;
 }
@@ -172,7 +171,7 @@
     padding: 1.25em;
     text-align: justify;
     border: 2px solid #c3c6ce;
-    transition: 0.5s ease-out;
+    transition: 0.5s var(--ease-out);
     overflow: visible;
     margin: 1.5em;
     display: inline-block;

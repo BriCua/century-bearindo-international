@@ -4,7 +4,7 @@
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  transition: transform 0.5s ease-out;
+  transition: transform 0.5s var(--ease-out);
   width: 320px; /* w-80 */
   height: 380px; /* h-110 */
   display: flex;
