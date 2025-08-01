@@ -222,7 +222,7 @@ function App() {
           )}
         </div>
       </nav>
-      <main>
+      <main style={{ overflowX: 'hidden' }}>
         <Outlet />
         <br></br>
         <br></br>
@@ -263,7 +263,7 @@ function App() {
                       />
                     </div>
                     <span className="icon-desc show-always">
-                      (031) 5357878 (Industrial Sales Dept)
+                      (031) 535 7878 (Industrial Sales Dept)
                     </span>
                   </a>
                 </span>
@@ -291,7 +291,7 @@ function App() {
                       />
                     </div>
                     <span className="icon-desc show-always">
-                      (031) 5353882 (Distribution Sales Dept)
+                      (031) 535 3882 (Distribution Sales Dept)
                     </span>
                   </a>
                 </span>

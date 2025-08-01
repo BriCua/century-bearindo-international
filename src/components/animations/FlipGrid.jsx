@@ -69,11 +69,11 @@ export default function FlipGrid() {
         <div
           key={i}
           ref={(el) => (cardRefs.current[i] = el)}
-          className="w-28 h-28 relative [transform-style:preserve-3d] [perspective:1000px] rounded-md shade"
+          className="w-28 h-28 relative [transform-style:preserve-3d] [perspective:1000px]"
         >
           <div
             ref={(el) => (innerRefs.current[i] = el)}
-            className="absolute inset-0 transition-transform duration-700 [transform-style:preserve-3d]"
+            className="absolute inset-0 transition-transform duration-700 [transform-style:preserve-3d] rounded-md shade"
           >
             <div className="absolute inset-0 front backface-hidden bg-white flex items-center justify-center rounded-md ">
               <a href={partners[i].link} target="_blank" rel="noopener noreferrer">

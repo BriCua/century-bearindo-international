@@ -31,6 +31,12 @@
   width: 80%;
 }
 
+@media (min-width: 1024px) {
+  .card-container a:last-child:nth-child(odd) {
+    display: none;
+  }
+}
+
 .card-container {
   display: flex;
   flex-direction: row;

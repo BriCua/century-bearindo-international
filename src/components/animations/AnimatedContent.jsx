@@ -18,6 +18,7 @@ const AnimatedContent = ({
   threshold = 0.1,
   delay = 0,
   onComplete,
+  triggerOnScroll = true, // New prop
 }) => {
   const ref = useRef(null);
 
@@ -35,7 +36,7 @@ const AnimatedContent = ({
       opacity: animateOpacity ? initialOpacity : 1,
     });
 
-    gsap.to(el, {
+    const animationConfig = {
       [axis]: 0,
       scale: 1,
       opacity: 1,
@@ -43,16 +44,23 @@ const AnimatedContent = ({
       ease,
       delay,
       onComplete,
-      scrollTrigger: {
+    };
+
+    if (triggerOnScroll) {
+      animationConfig.scrollTrigger = {
         trigger: el,
         start: `top ${startPct}%`,
         toggleActions: "play none none none",
         once: true,
-      },
-    });
+      };
+    }
+
+    gsap.to(el, animationConfig);
 
     return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill());
+      if (triggerOnScroll) {
+        ScrollTrigger.getAll().forEach(t => t.kill());
+      }
       gsap.killTweensOf(el);
     };
   }, [
@@ -67,6 +75,7 @@ const AnimatedContent = ({
     threshold,
     delay,
     onComplete,
+    triggerOnScroll, // Add new prop to dependency array
   ]);
 
   return <div ref={ref}>{children}</div>;

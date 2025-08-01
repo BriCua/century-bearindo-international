@@ -1,9 +1,12 @@
-## 2025-07-26
+## 2025-08-01
 
-- Implemented client-side navigation on the product page to prevent full-page reloads when switching between product categories. The main content area now updates dynamically.
-- Added a `key` prop to the main content area on the product page to ensure that animations re-trigger when the selected product changes.
-- Replicated the structure and functionality of the 'Produk' page for the 'Layanan' page.
-- Extracted service data from the `FlipCard` component and created a new `layanan.js` data file.
-- Updated the URL parameter format for products from `?open=item1` to `?open=produk1`.
-- Created a new `Layanan.jsx` page and a corresponding `LayananDisplay.jsx` component.
-- Created a new `layanan.css` file with the same styling as `produk.css`.
+- **UX:** Replaced browser alerts on the contact form with integrated inline notifications for a smoother user experience.
+- **UX:** Implemented skeleton loading screens for the product and service pages to improve perceived performance.
+- **Fix:** Prevented horizontal overflow on all pages by applying `overflow-x: hidden` to the main content area.
+- **Feature:** Added animations to the contact page for a more engaging user experience.
+- **Style:** Added a decorative element to the bottom of the product and service sidebars for a more polished look.
+- **Update:** Updated the core values on the "Tentang" page with the correct descriptions.
+- **Feature:** Implemented a flip-card animation for the core values on the "Tentang" page, revealing detailed descriptions on hover.
+- **Feature:** Added the company's core values to the "Tentang" page.
+- **Fix:** Resolved syntax errors in the `layanan` and `produk` stylesheets that were causing improper mobile rendering.
+- **Update:** Added padding to the mobile view of the `layanan` and `produk` pages to prevent content from touching the screen edges.

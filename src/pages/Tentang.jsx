@@ -1,4 +1,5 @@
 import AnimatedContent from "../components/animations/AnimatedContent";
+import FlipBox from "../components/animations/FlipBox";
 import { useMemo } from "react";
 
 export default function Tentang() {
@@ -35,7 +36,7 @@ export default function Tentang() {
               animateOpacity
               scale={1}
               threshold={0.2}
-              delay={0.5}
+              delay={0.25}
             >
               <img
                 src={`${import.meta.env.BASE_URL}identity/about.webp`}
@@ -54,7 +55,7 @@ export default function Tentang() {
               animateOpacity
               scale={1}
               threshold={0.2}
-              delay={0.5}
+              delay={0.25}
             >
               <h3 className=" title">Profil Kami</h3>
             </AnimatedContent>
@@ -181,7 +182,7 @@ export default function Tentang() {
             </div>
           </AnimatedContent>
         </div>
-        <div className="values">
+        <div className="values-grouper">
           <AnimatedContent
             distance={150}
             direction="vertical"
@@ -192,67 +193,105 @@ export default function Tentang() {
             animateOpacity
             scale={1}
             threshold={0.2}
-            delay={0.5}
+            delay={0.25}
           >
-            <div
-              className="float values-item"
-              style={{ animationDelay: `${floatDelays[0]}s` }}
-            ></div>
+            <h3 className="title text-center">Nilai-Nilai Inti Kami</h3>
           </AnimatedContent>
-          <AnimatedContent
-            distance={150}
-            direction="vertical"
-            reverse={false}
-            duration={1}
-            ease="power3.out"
-            initialOpacity={0}
-            animateOpacity
-            scale={1}
-            threshold={0.2}
-            delay={0.75}
-          >
-            <div
-              className="float values-item"
-              style={{ animationDelay: `${floatDelays[1]}s` }}
-            ></div>
-          </AnimatedContent>
-          <AnimatedContent
-            distance={150}
-            direction="vertical"
-            reverse={false}
-            duration={1}
-            ease="power3.out"
-            initialOpacity={0}
-            animateOpacity
-            scale={1}
-            threshold={0.2}
-            delay={1}
-          >
-            <div
-              className="float values-item"
-              style={{ animationDelay: `${floatDelays[2]}s` }}
+          <div className="values">
+            <AnimatedContent
+              distance={150}
+              direction="vertical"
+              reverse={false}
+              duration={1}
+              ease="power3.out"
+              initialOpacity={0}
+              animateOpacity
+              scale={1}
+              threshold={0.2}
+              delay={0.25}
             >
-            
-            </div>
-          </AnimatedContent>
+              <div
+                className="float values-item"
+                style={{ animationDelay: `${floatDelays[0]}s` }}
+              >
+                <FlipBox
+                  interval={10000}
+                  frontContent={<h4 className="text-2xl font-bold">Model Keunggulan</h4>}
+                  backContent={<p className="text-center">Untuk menerapkan praktik terbaik dan menetapkan standar unggul dalam proses & metode kerja kami.</p>}
+                />
+              </div>
+            </AnimatedContent>
+            <AnimatedContent
+              distance={150}
+              direction="vertical"
+              reverse={false}
+              duration={1}
+              ease="power3.out"
+              initialOpacity={0}
+              animateOpacity
+              scale={1}
+              threshold={0.2}
+              delay={0.75}
+            >
+              <div
+                className="float values-item"
+                style={{ animationDelay: `${floatDelays[1]}s` }}
+              >
+                <FlipBox
+                  interval={10000}
+                  frontContent={<h4 className="text-2xl font-bold">Integritas</h4>}
+                  backContent={<p className="text-center">Mempunyai akhlak yang lurus dan teguh berpegang pada prinsip moral yang tinggi serta standar profesi.</p>}
+                />
+              </div>
+            </AnimatedContent>
+            <AnimatedContent
+              distance={150}
+              direction="vertical"
+              reverse={false}
+              duration={1}
+              ease="power3.out"
+              initialOpacity={0}
+              animateOpacity
+              scale={1}
+              threshold={0.2}
+              delay={1}
+            >
+              <div
+                className="float values-item"
+                style={{ animationDelay: `${floatDelays[2]}s` }}
+              >
+                <FlipBox
+                  interval={10000}
+                  frontContent={<h4 className="text-2xl font-bold">Pembinaan</h4>}
+                  backContent={<p className="text-center">Untuk mendidik dan mengembangkan sumber daya manusia kami guna pertumbuhan sambil memberikan perhatian dan kesejahteraan kepada mereka.</p>}
+                />
+              </div>
+            </AnimatedContent>
 
-          <AnimatedContent
-            distance={150}
-            direction="vertical"
-            reverse={false}
-            duration={1}
-            ease="power3.out"
-            initialOpacity={0}
-            animateOpacity
-            scale={1}
-            threshold={0.2}
-            delay={1.25}
-          >
-            <div
-              className="float values-item"
-              style={{ animationDelay: `${floatDelays[3]}s` }}
-            ></div>
-          </AnimatedContent>
+            <AnimatedContent
+              distance={150}
+              direction="vertical"
+              reverse={false}
+              duration={1}
+              ease="power3.out"
+              initialOpacity={0}
+              animateOpacity
+              scale={1}
+              threshold={0.2}
+              delay={1}
+            >
+              <div
+                className="float values-item"
+                style={{ animationDelay: `${floatDelays[3]}s` }}
+              >
+                <FlipBox
+                  interval={10000}
+                  frontContent={<h4 className="text-2xl font-bold">Kecermatan</h4>}
+                  backContent={<p className="text-center">Untuk menunjukkan upaya yang gigih dan keras.</p>}
+                />
+              </div>
+            </AnimatedContent>
+          </div>
         </div>
       </section>
     </>

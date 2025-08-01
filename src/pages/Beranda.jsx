@@ -5,7 +5,7 @@ import AnimatedContent from "../components/animations/AnimatedContent";
 import { Link } from "react-router-dom";
 import FlipCard from "../components/animations/FlipCard";
 import FlipGrid from "../components/animations/FlipGrid";
-import { products } from "../data/products";
+import sanityClient from "../sanityClient";
 
 // import { Tooltip } from "flowbite-react";
 //import InfiniteScroll from '../InfiniteScroll';
@@ -18,8 +18,23 @@ export default function Beranda() {
     `${import.meta.env.BASE_URL}carousel/carousel-4.png`,
     `${import.meta.env.BASE_URL}carousel/carousel-5.png`,
   ];
+  const [products, setProducts] = useState([]);
   const [carouselIndex, setcarouselIndex] = useState(0);
   const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == "product"] | order(_createdAt asc){
+          _id,
+          name,
+          "images": image.asset->url,
+          desc
+        }`
+      )
+      .then((data) => setProducts(data))
+      .catch(console.error);
+  }, []);
 
   const changecarousel = (newIndex) => {
     setFade(false);
@@ -140,7 +155,7 @@ export default function Beranda() {
               animateOpacity
               scale={1}
               threshold={0.2}
-              delay={0.5}
+              delay={0.25}
             >
               <h1 className="desc-title mb-[0.5em]">
                 Distributor & Supplier Bearing Surabaya
@@ -156,7 +171,7 @@ export default function Beranda() {
               animateOpacity
               scale={1}
               threshold={0.2}
-              delay={0.75}
+              delay={0.25}
             >
               <p className="desc-p">
                 Bergerak di bidang solusi bearing dan komponen mekanikal dari
@@ -197,7 +212,7 @@ export default function Beranda() {
           animateOpacity
           scale={1}
           threshold={0.2}
-          delay={0.5}
+          delay={0.25}
         >
           <Link to="/produk">
             <h2 className="showcase-title"> Produk Unggulan </h2>
@@ -213,20 +228,20 @@ export default function Beranda() {
           initialOpacity={0}
           className="card-container"
         >
-          {products.map((product) => (
+          {products.map((product) => (     
             <Link
-              to={`/produk?open=${product.id}`}
+              to={`/produk?open=${product._id}`}
               className="card float w-64"
-              key={product.id}
+              key={product._id}
             >
               <div className="card-details">
                 <img
-                  src={product.images[0]}
+                  src={product.images}
                   className="card-img"
-                  alt={product.title}
+                  alt={product.name}
                 />
                 <hr className="border-solid" />
-                <p className="card-title">{product.title}</p>
+                <p className="card-title">{product.name}</p>
               </div>
               <button className="card-button">Selengkapnya</button>
             </Link>
@@ -245,7 +260,7 @@ export default function Beranda() {
             animateOpacity
             scale={1}
             threshold={0.2}
-            delay={0.5}
+            delay={0.25}
           >
             <Link to="/layanan" className="services-title-container">
               <div className="decor-vert mr-4 origin-left "></div>
@@ -263,7 +278,7 @@ export default function Beranda() {
             animateOpacity
             scale={1}
             threshold={0.2}
-            delay={0.75}
+            delay={0.25}
           >
             <p className="desc-p">
               PT. Century Bearindo International menyediakan berbagai layanan
@@ -281,7 +296,7 @@ export default function Beranda() {
           animateOpacity
           scale={1}
           threshold={0.2}
-          delay={0.5}
+          delay={0.25}
         >
           <FlipCard />
         </AnimatedContent>
@@ -297,7 +312,7 @@ export default function Beranda() {
           animateOpacity
           scale={1}
           threshold={0.2}
-          delay={0.5}
+          delay={0.25}
         >
           <FlipGrid />
         </AnimatedContent>
@@ -313,7 +328,7 @@ export default function Beranda() {
             animateOpacity
             scale={1}
             threshold={0.2}
-            delay={0.5}
+            delay={0.25}
           >
             <div className="partners-title-container group">
               <h2 className="partners-title">Mitra Kami</h2>
@@ -331,7 +346,7 @@ export default function Beranda() {
             animateOpacity
             scale={1}
             threshold={0.2}
-            delay={0.75}
+            delay={0.25}
           >
             <p className="desc-p p-partners">
               20+ tahun pengalaman dalam kerja sama dengan mitra merek
