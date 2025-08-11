@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import FlipCard from "../components/animations/FlipCard";
 import FlipGrid from "../components/animations/FlipGrid";
 import sanityClient from "../sanityClient";
+import useViewport from "../utils/useViewport";
 
 // import { Tooltip } from "flowbite-react";
 //import InfiniteScroll from '../InfiniteScroll';
@@ -19,6 +20,8 @@ export default function Beranda() {
     `${import.meta.env.BASE_URL}carousel/carousel-5.png`,
   ];
   const [products, setProducts] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const { width } = useViewport();
   const [carouselIndex, setcarouselIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
@@ -28,12 +31,33 @@ export default function Beranda() {
         `*[_type == "product"] | order(_createdAt asc){
           _id,
           name,
-          "images": image.asset->url,
+          "images": images[0].asset->url,
           desc
         }`
       )
       .then((data) => setProducts(data))
       .catch(console.error);
+
+    sanityClient
+      .fetch(
+        `*[_type == "post"] | order(_createdAt desc)[0...3]{
+          _id,
+          title,
+          slug,
+          mainImage{
+            asset->{
+              url
+            }
+          },
+          excerpt
+        }`
+      )
+      .then((data) => {
+        setPosts(data);
+      })
+      .catch((error) => {
+        console.error("Gagal memuat highlights:", error);
+      });
   }, []);
 
   const changecarousel = (newIndex) => {
@@ -133,7 +157,7 @@ export default function Beranda() {
           ))}
         </div>
       </figure>
-      <section className="desc-space">
+      <section className="desc-space" id="tentang-section">
         <div className="desc-content">
           <FadeContent
             blur={true}
@@ -142,7 +166,10 @@ export default function Beranda() {
             initialOpacity={0}
             className="desc-image-container"
           >
-            <img src={`${import.meta.env.BASE_URL}identity/about.webp`} className="desc-image" />
+            <img
+              src={`${import.meta.env.BASE_URL}identity/about.webp`}
+              className="desc-image"
+            />
           </FadeContent>
           <div className="desc-text">
             <AnimatedContent
@@ -157,8 +184,8 @@ export default function Beranda() {
               threshold={0.2}
               delay={0.25}
             >
-              <h1 className="desc-title mb-[0.5em]">
-                Distributor & Supplier Bearing Surabaya
+              <h1 className="desc-title ">
+                Distributor Bearings Resmi di Surabaya - Jawa Timur
               </h1>
             </AnimatedContent>
             <AnimatedContent
@@ -174,10 +201,13 @@ export default function Beranda() {
               delay={0.25}
             >
               <p className="desc-p">
-                Bergerak di bidang solusi bearing dan komponen mekanikal dari
-                merek-merek global seperti SKF, FAG, NTN, dan NSK. Mengutamakan
-                kebutuhan industri serta mendukung performa dan efisiensi
-                operasional secara maksimal. <strong className="mt-2">- Sejak tahun 2003</strong>
+                PT Century Bearindo International adalah perusahaan distribusi
+                bearing, power transmission, dan komponen industri ternama,
+                menyediakan produk merek dunia berkualitas tinggi untuk berbagai
+                sektor seperti manufaktur, otomotif, pertambangan, pertanian,
+                dan kelautan, didukung jaringan distribusi luas, tim
+                berpengalaman, harga kompetitif, serta layanan purna jual andal.
+                <strong className="mt-2">- Sejak tahun 2003</strong>
               </p>
             </AnimatedContent>
             <AnimatedContent
@@ -201,7 +231,7 @@ export default function Beranda() {
           </div>
         </div>
       </section>
-      <section className="showcase overflow-hidden">
+      <section className="showcase overflow-hidden"id="produk-section">
         <AnimatedContent
           distance={150}
           direction="vertical"
@@ -214,7 +244,7 @@ export default function Beranda() {
           threshold={0.2}
           delay={0.25}
         >
-          <Link to="/produk">
+          <Link to="/produk" className="showcase-title-container">
             <h2 className="showcase-title"> Produk Unggulan </h2>
             <hr className="line" />
           </Link>
@@ -228,7 +258,7 @@ export default function Beranda() {
           initialOpacity={0}
           className="card-container"
         >
-          {products.map((product) => (     
+          {products.map((product) => (
             <Link
               to={`/produk?open=${product._id}`}
               className="card float w-64"
@@ -248,7 +278,7 @@ export default function Beranda() {
           ))}
         </FadeContent>
       </section>
-      <section className="services ">
+      <section className="services "id="layanan-section">
         <div className="services-desc">
           <AnimatedContent
             distance={150}
@@ -261,6 +291,7 @@ export default function Beranda() {
             scale={1}
             threshold={0.2}
             delay={0.25}
+            
           >
             <Link to="/layanan" className="services-title-container">
               <div className="decor-vert mr-4 origin-left "></div>
@@ -299,6 +330,78 @@ export default function Beranda() {
           delay={0.25}
         >
           <FlipCard />
+        </AnimatedContent>
+      </section>
+      <div
+        style={{ display: "flex", justifyContent: "center" }}
+        className="mt-68"
+      >
+        <AnimatedContent
+          distance={150}
+          direction="vertical"
+          reverse={false}
+          duration={1}
+          ease="power3.out"
+          initialOpacity={0}
+          animateOpacity
+          scale={1}
+          threshold={0.2}
+          delay={0.25}
+        >
+          <Link to="/highlights" className="showcase-title-container">
+            <h2 className="showcase-title">Highlights</h2>
+            <hr className="line" />
+          </Link>
+        </AnimatedContent>
+      </div>
+      <section className="highlights-section" id="highlights-section">
+        <AnimatedContent
+          distance={150}
+          direction="vertical"
+          reverse={false}
+          duration={1}
+          ease="power3.out"
+          initialOpacity={0}
+          animateOpacity
+          scale={1}
+          threshold={0.2}
+          delay={0.35}
+        >
+          <div className="highlights-grid">
+            {posts
+              .slice(0, width <= 768 ? 1 : width <= 1024 ? 2 : 3)
+              .map((post) => (
+                <Link
+                  to={`/highlights/${post.slug.current}`}
+                  key={post._id}
+                  className="highlight-card"
+                >
+                  <img
+                    src={post.mainImage.asset.url}
+                    alt={post.title}
+                    className="highlight-card-image"
+                  />
+                  <div className="highlight-card-content">
+                    <h3 className="highlight-card-title">{post.title}</h3>
+                    <p
+                      className="highlight-card-desc"
+                      style={{
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                      }}
+                    >
+                      {post.excerpt}
+                    </p>
+                    <div className="highlight-card-readmore">
+                      Baca Selengkapnya →
+                    </div>
+                  </div>
+                </Link>
+              ))}
+          </div>
         </AnimatedContent>
       </section>
       <section className="partners overflow-hidden">

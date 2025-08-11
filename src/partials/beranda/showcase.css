@@ -7,6 +7,13 @@
   overflow: hidden;
 }
 
+.showcase-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
 .showcase-title {
   width: 100%;
   text-align: center;
@@ -27,7 +34,7 @@
   justify-self: center;
 }
 
-.showcase:has(.showcase-title:hover) .line {
+.showcase-title-container:has(.showcase-title:hover) .line {
   width: 80%;
 }
 

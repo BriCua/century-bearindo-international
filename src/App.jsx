@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, Fragment } from "react";
 import { Icon } from "@iconify/react";
-import { Link, useLocation, Outlet } from "react-router-dom";
+import { Link, useLocation, Outlet, ScrollRestoration } from "react-router-dom";
 import "./App.css";
 import {
   Footer,
@@ -340,6 +340,7 @@ function App() {
           &copy; COPYRIGHT – CENTURY-BEARINDO-INTERNATIONAL.COM
         </div>
       </footer>
+      <ScrollRestoration />
     </>
   );
 }

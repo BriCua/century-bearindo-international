@@ -1,6 +1,7 @@
 import AnimatedContent from "../components/animations/AnimatedContent";
 import FlipBox from "../components/animations/FlipBox";
 import { useMemo } from "react";
+import BackButton from "../components/BackButton";
 
 export default function Tentang() {
   const floatDelays = useMemo(
@@ -23,6 +24,7 @@ export default function Tentang() {
         name="keywords"
         content="profil perusahaan, tentang kami, sejarah perusahaan, distributor bearing resmi, century bearindo international"
       />
+      <BackButton target="/#tentang-section" />
       <section className="about overflow-hidden">
         <div className="profile">
           <div className="grouper-image">
@@ -72,14 +74,12 @@ export default function Tentang() {
               delay={0.6}
             >
               <p className="boxed-right-white text-justify">
-                Didirikan pada tahun 2003, PT. Century Bearindo International
-                memulai bisnisnya di sebuah toko yang terletak di Jalan Raden
-                Saleh, Surabaya. Sebagai bagian dari kelompok perusahaan bearing
-                internasional di Singapura, kami dianggap sebagai pemain kunci
-                dalam bisnis bearing dan produk terkaitnya; memegang Distributor
-                Tunggal dan Berizin untuk merek-merek terkenal dunia seperti
-                NACHI, LUK_FAG_INA, FYH, NMB, JNS, IJK, SAMICK, DOGDE, ILJIN,
-                TIMKEN, FBJ, DETMK, BANDO, ABB, dan lainnya.
+                Sejak awal berdiri, PT Century Bearindo International telah
+                berkomitmen menjadi penyedia bearing dan komponen transmisi daya
+                berkualitas tinggi bagi berbagai sektor industri di Indonesia.
+                Berbasis di Surabaya, kami melayani kebutuhan pelanggan dari
+                skala bengkel hingga industri besar di seluruh Jawa Timur dan
+                wilayah Indonesia Timur.
               </p>
             </AnimatedContent>
             <AnimatedContent
@@ -95,13 +95,10 @@ export default function Tentang() {
               delay={0.7}
             >
               <p className="boxed-left-white text-justify">
-                Produk kami dipilih berdasarkan keunggulan kompetitif mereka,
-                kualitas produk yang tinggi, dan potensi di pasar global.
-                Sebagai pemasok bearing, kami berkembang melalui perbaikan dan
-                terus mencari perubahan untuk menjaga nol cacat di semua area.
-                Yang lebih penting, kami melihat perlunya membawa keamanan dan
-                pengembalian di atas rata-rata bagi karyawan dan pemegang saham
-                kami untuk memastikan hubungan yang stabil dan percaya diri.
+                Kami menghadirkan produk dari merek-merek terkemuka dunia yang
+                telah terbukti kehandalannya, mulai dari bearing untuk aplikasi
+                industri, otomotif, hingga pertanian, serta berbagai komponen
+                pendukung seperti power transmission dan sistem pelumasan
               </p>
             </AnimatedContent>
             <AnimatedContent
@@ -216,8 +213,15 @@ export default function Tentang() {
               >
                 <FlipBox
                   interval={10000}
-                  frontContent={<h4 className="text-2xl font-bold">Model Keunggulan</h4>}
-                  backContent={<p className="text-center">Untuk menerapkan praktik terbaik dan menetapkan standar unggul dalam proses & metode kerja kami.</p>}
+                  frontContent={
+                    <h4 className="text-2xl font-bold">Model Keunggulan</h4>
+                  }
+                  backContent={
+                    <p className="text-center">
+                      Untuk menerapkan praktik terbaik dan menetapkan standar
+                      unggul dalam proses & metode kerja kami.
+                    </p>
+                  }
                 />
               </div>
             </AnimatedContent>
@@ -239,8 +243,15 @@ export default function Tentang() {
               >
                 <FlipBox
                   interval={10000}
-                  frontContent={<h4 className="text-2xl font-bold">Integritas</h4>}
-                  backContent={<p className="text-center">Mempunyai akhlak yang lurus dan teguh berpegang pada prinsip moral yang tinggi serta standar profesi.</p>}
+                  frontContent={
+                    <h4 className="text-2xl font-bold">Integritas</h4>
+                  }
+                  backContent={
+                    <p className="text-center">
+                      Mempunyai akhlak yang lurus dan teguh berpegang pada
+                      prinsip moral yang tinggi serta standar profesi.
+                    </p>
+                  }
                 />
               </div>
             </AnimatedContent>
@@ -262,8 +273,16 @@ export default function Tentang() {
               >
                 <FlipBox
                   interval={10000}
-                  frontContent={<h4 className="text-2xl font-bold">Pembinaan</h4>}
-                  backContent={<p className="text-center">Untuk mendidik dan mengembangkan sumber daya manusia kami guna pertumbuhan sambil memberikan perhatian dan kesejahteraan kepada mereka.</p>}
+                  frontContent={
+                    <h4 className="text-2xl font-bold">Pembinaan</h4>
+                  }
+                  backContent={
+                    <p className="text-center">
+                      Untuk mendidik dan mengembangkan sumber daya manusia kami
+                      guna pertumbuhan sambil memberikan perhatian dan
+                      kesejahteraan kepada mereka.
+                    </p>
+                  }
                 />
               </div>
             </AnimatedContent>
@@ -286,8 +305,14 @@ export default function Tentang() {
               >
                 <FlipBox
                   interval={10000}
-                  frontContent={<h4 className="text-2xl font-bold">Kecermatan</h4>}
-                  backContent={<p className="text-center">Untuk menunjukkan upaya yang gigih dan keras.</p>}
+                  frontContent={
+                    <h4 className="text-2xl font-bold">Kecermatan</h4>
+                  }
+                  backContent={
+                    <p className="text-center">
+                      Untuk menunjukkan upaya yang gigih dan keras.
+                    </p>
+                  }
                 />
               </div>
             </AnimatedContent>

@@ -13,7 +13,7 @@ export default function SpinCard() {
         `*[_type == "service"] | order(_createdAt asc){
           _id,
           name,
-          "images": image.asset->url,
+          "images": images[0].asset->url,
           desc
         }`
       )
@@ -34,6 +34,8 @@ export default function SpinCard() {
   }
 
   const { name, desc, images, _id } = services[index];
+
+  const nextService = services[(index + 1) % services.length];
 
   return (
     <div
@@ -80,6 +82,15 @@ export default function SpinCard() {
           />
         </div>
       </div>
+
+      {/* Preload the next image */}
+      {nextService && (
+        <img
+          src={nextService.images}
+          alt="Preload"
+          style={{ position: "absolute", left: "-9999px", top: "-9999px" }}
+        />
+      )}
 
       {/* Hint */}
       

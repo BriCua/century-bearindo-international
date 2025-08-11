@@ -1,4 +1,3 @@
-
 .desc-space {
   display: flex;
   justify-content: center;
@@ -41,14 +40,13 @@
   z-index: 3;
   color: var(--color-bg);
   display: flex;
-  gap: 5em;
+  gap: 5rem;
   justify-self: center;
   justify-content: center;
   align-items: center;
   flex-direction: row;
   height: 100%;
   width: 80%;
-  
 }
 
 .desc-image-container {
@@ -70,8 +68,8 @@
   flex-direction: column;
   height: fit-content;
   padding: 0;
+  gap:2rem;
 }
-
 
 .desc-p {
   text-align: justify;
@@ -86,7 +84,7 @@
   font-weight: bold;
   font-family: var(--font-button);
   align-self: flex-end;
-  margin: 3em 0 0 0;
+  margin: 0 0 0 0;
   border: none;
   border-radius: 1.5em;
   padding: 0.5em 1.5em;
@@ -106,7 +104,7 @@
 }
 
 .read-more::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -136,50 +134,42 @@
   content: ">";
   margin-right: 0.3em;
 }
-@media(max-width: 1000px){
-  .read-more{
-    background-color: #e60000;
-  font-weight: bold;
-  color: #fff;
-  border-radius: 1.5em;
-  box-shadow: 0 4px 24px 0 #e6000055, 0 0 1em #fff2;
-  outline: none;
-  }
-}
 
-@media (max-width: 768px) {
-  .desc-title{
+@media (max-width: 1000px) {
+  .desc-title {
     font-size: 3em;
   }
-  .desc-content{
+  .desc-content {
     flex-direction: column-reverse;
     text-align: center;
-    gap: 3em;
+    gap: 2rem;
+    width: 95%;
   }
-  .desc-text{
-    align-items:center ;
+  .desc-text {
+    align-items: center;
     width: 90%;
   }
-  .desc-p{
+  .desc-p {
     text-align: center;
   }
-  .read-more{
+  .read-more {
     background-color: #e60000;
-  font-weight: bold;
-  color: #fff;
-  border-radius: 1.5em;
-  box-shadow: 0 4px 24px 0 #e6000055, 0 0 1em #fff2;
-  padding: 0.5em 1.5em;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 1.5em;
+    box-shadow: 0 4px 24px 0 #e6000055, 0 0 1em #fff2;
+    padding: 0.5em 1.5em;
     margin-right: 0;
     font-size: 1.5em;
-}
+    outline: none;
+  }
   .desc-image-container {
     height: 20em;
   }
   .desc-space {
-    height: 65em;
+    height: 75em;
   }
   .desc-space::after {
-    height: 65em;
+    height: 75em;
   }
 }

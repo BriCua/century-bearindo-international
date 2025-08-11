@@ -13,12 +13,7 @@ export default function LayananDisplay() {
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[_type == "service"] | order(_createdAt asc){
-          _id,
-          name,
-          "images": image.asset->url,
-          desc
-        }`
+                `*[_type == "service"] | order(_createdAt asc){_id, name, "images": images[].asset->url, desc}`
       )
       .then((data) => setServices(data))
       .catch(console.error);
@@ -90,7 +85,9 @@ export default function LayananDisplay() {
           ))}
         </div>
         <div className="layanan-images">
-          <img src={selectedLayanan.images} alt={`${selectedLayanan.name} image`} />
+          {Array.isArray(selectedLayanan.images) && selectedLayanan.images.map((imageUrl, index) => (
+            <img key={index} src={imageUrl} alt={`${selectedLayanan.name} image ${index + 1}`} />
+          ))}
         </div>
         </AnimatedContent>
       </main>

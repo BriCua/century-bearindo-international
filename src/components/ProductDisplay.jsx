@@ -14,12 +14,7 @@ export default function ProductDisplay() {
   useEffect(() => {
     sanityClient
       .fetch(
-        `*[_type == "product"] | order(_createdAt asc){
-          _id,
-          name,
-          "images": image.asset->url,
-          desc
-        }`
+                `*[_type == "product"] | order(_createdAt asc){_id, name, "images": images[].asset->url, desc}`
       )
       .then((data) => setProducts(data))
       .catch(console.error);
@@ -91,7 +86,9 @@ export default function ProductDisplay() {
           ))}
         </div>
         <div className="product-images mt-8">
-          <img src={selectedProduct.images} alt={`${selectedProduct.name} image`} />
+          {Array.isArray(selectedProduct.images) && selectedProduct.images.map((imageUrl, index) => (
+            <img key={index} src={imageUrl} alt={`${selectedProduct.name} image ${index + 1}`} />
+          ))}
         </div>
         </AnimatedContent>
       </main>

@@ -1,9 +1,9 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
+
 import App from './App.jsx';
 import Beranda from './pages/Beranda.jsx';
 import Tentang from './pages/Tentang.jsx';
@@ -15,26 +15,30 @@ import HighlightsPage from './pages/highlights/HighlightsPage.jsx';
 import HighlightsPostPage from './pages/highlights/HighlightsPostPage.jsx';
 import TrailingSlashEnforcer from './components/TrailingSlashEnforcer.jsx';
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <TrailingSlashEnforcer>
+        <App />
+      </TrailingSlashEnforcer>
+    ),
+    children: [
+      { index: true, element: <Beranda /> },
+      { path: "beranda", element: <Navigate to="/" replace /> },
+      { path: "tentang", element: <Tentang /> },
+      { path: "produk", element: <Produk /> },
+      { path: "layanan", element: <Layanan /> },
+      { path: "kontak", element: <Kontak /> },
+      { path: "karir", element: <Karir /> },
+      { path: "highlights", element: <HighlightsPage /> },
+      { path: "highlights/:slug", element: <HighlightsPostPage /> },
+    ],
+  },
+], { basename: "/century-bearindo-international/" });
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/century-bearindo-international/">
-      <TrailingSlashEnforcer>
-        <Routes>
-          <Route path="/" element={<App />}>
-            <Route index element={<Beranda />} />
-            <Route path="beranda" element={<Navigate to="/" replace />} />
-            <Route path="tentang" element={<Tentang />} />
-            <Route path="produk" element={<Produk />} />
-            <Route path="layanan" element={<Layanan />} />
-            {/* <Route path="katalog" element={<Katalog />} /> */}
-            <Route path="kontak" element={<Kontak />} />
-            {/* <Route path="galeri" element={<Galeri />} /> */}
-            <Route path="karir" element={<Karir />} />
-            <Route path="highlights" element={<HighlightsPage />} />
-            <Route path="highlights/:slug" element={<HighlightsPostPage />} />
-          </Route>
-        </Routes>
-      </TrailingSlashEnforcer>
-    </BrowserRouter>
-  </StrictMode>,
-)
+    <RouterProvider router={router} />
+  </StrictMode>
+);

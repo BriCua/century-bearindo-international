@@ -9,7 +9,7 @@
 .profile {
   width: 100%;
   justify-self: center;
-  padding: 2rem 0;
+  padding: 0 0 2rem 0 ;
   justify-content: center;
   display: flex;
   gap: 1.5rem;

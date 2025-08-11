@@ -6,6 +6,8 @@ import { formatDate } from "../../utils/date";
 import "../../partials/highlights/post.css";
 import FullScreenShrinker from "../../components/animations/FullScreenShrinker";
 import AnimatedContent from "../../components/animations/AnimatedContent";
+import SkeletonLoader from "../../components/animations/SkeletonLoader";
+import BackButton from "../../components/BackButton";
 
 const ptComponents = {
   block: {
@@ -44,7 +46,7 @@ export default function HighlightsPostPage() {
   }, [slug]);
 
   if (!post) {
-    return <div>Loading...</div>;
+    return <SkeletonLoader />;
   }
 
   return (
@@ -54,7 +56,8 @@ export default function HighlightsPostPage() {
         name="description"
         content={`Baca artikel terbaru dari PT. Century Bearindo International: ${post.title}`}
       />
-      <div className="justify-self-center w-7/8 mt-16 mb-16 group">
+      <BackButton target="/highlights" />
+      <div className="justify-self-center w-7/8 mt-4 mb-16 group">
         {/* <FullScreenShrinker/> */}
         <AnimatedContent
           distance={150}

@@ -1,0 +1,23 @@
+.after-effect::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-out);
+  z-index: 1;
+}
+
+.after-effect:hover::after {
+  transform: scaleX(1);
+}
+@media (max-width: 768px) {
+  .backbutton-kembali-mobile {
+    opacity: 1 !important;
+    transform: none !important;
+    scale: 1 !important;
+    width: fit-content !important;
+    margin-left: 0.5em !important;
+  }
+}
