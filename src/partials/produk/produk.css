@@ -13,7 +13,7 @@
     flex-direction: column;
     width: 100vw;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     gap: 1.5rem;
   }
 }
@@ -29,6 +29,7 @@
   margin-right: 3rem;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
+  margin-top: 1.3rem;
   margin-bottom: 1rem;
 }
 @media (max-width: 768px) {
@@ -142,4 +143,12 @@
   width: 100%;
   height: auto;
   border-radius: 8px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+@media (max-width: 460px) {
+  .product-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

@@ -4,17 +4,21 @@ import sanityClient from "../../sanityClient";
 import { PortableText } from "@portabletext/react";
 import { formatDate } from "../../utils/date";
 import "../../partials/highlights/post.css";
-import FullScreenShrinker from "../../components/animations/FullScreenShrinker";
 import AnimatedContent from "../../components/animations/AnimatedContent";
 import SkeletonLoader from "../../components/animations/SkeletonLoader";
-import BackButton from "../../components/BackButton";
 
 const ptComponents = {
   block: {
-    // Ex-level scope render
-    normal: ({ children }) => (
-      <p className="portable-text-paragraph">{children}</p>
-    ),
+    h1: ({ children }) => <h1 className="text-4xl font-bold my-4">{children}</h1>,
+    h2: ({ children }) => <h2 className="text-3xl font-bold my-4">{children}</h2>,
+    h3: ({ children }) => <h3 className="text-2xl font-bold my-4">{children}</h3>,
+    h4: ({ children }) => <h4 className="text-xl font-bold my-4">{children}</h4>,
+    normal: ({ children }) => <p className="text-lg my-4 text-justify">{children}</p>,
+    blockquote: ({ children }) => <blockquote className="border-l-4 border-gray-500 pl-4 my-4">{children}</blockquote>,
+  },
+  list: {
+    bullet: ({ children }) => <ul className="list-disc list-inside my-4">{children}</ul>,
+    number: ({ children }) => <ol className="list-decimal list-inside my-4">{children}</ol>,
   },
 };
 
@@ -56,74 +60,34 @@ export default function HighlightsPostPage() {
         name="description"
         content={`Baca artikel terbaru dari PT. Century Bearindo International: ${post.title}`}
       />
-      <BackButton target="/highlights" />
-      <div className="justify-self-center w-7/8 mt-4 mb-16 group">
-        {/* <FullScreenShrinker/> */}
-        <AnimatedContent
-          distance={150}
-          direction="vertical"
-          reverse={false}
-          duration={1.5}
-          ease="power3.out"
-          initialOpacity={0}
-          animateOpacity
-          scale={1}
-          threshold={0.2}
-          delay={0.5}
-        >
-          <h1 className="text-center">{post.title}</h1>
-        </AnimatedContent>
-        <AnimatedContent
-          distance={150}
-          direction="vertical"
-          reverse={false}
-          duration={1.4}
-          ease="power3.out"
-          initialOpacity={0}
-          animateOpacity
-          scale={1}
-          threshold={0.2}
-          delay={0.6}
-        >
-        {post.mainImage && (
-          <img
-            src={post.mainImage.asset.url}
-            alt={post.title}
-            className="rounded-2xl justify-self-center mt-8 mb-2"
-          />
-        )}
-        
-        <figcaption className="post-date font-sans justify-self-center mb-6">{formatDate(post.publishedAt)}</figcaption>
-        </AnimatedContent>
-          <AnimatedContent
-            distance={150}
-            direction="horizontal"
-            reverse={false}
-            duration={1.25}
-            ease="power3.out"
-            initialOpacity={0}
-            animateOpacity
-            scale={1}
-            threshold={0.2}
-            delay={0.75}
-          >
-            <h5 className="post-excerpt">{post.excerpt}</h5>
-          </AnimatedContent>
-        <AnimatedContent
-            distance={150}
-            direction="horizontal"
-            reverse={false}
-            duration={1.2}
-            ease="power3.out"
-            initialOpacity={0}
-            animateOpacity
-            scale={1}
-            threshold={0.2}
-            delay={0.8}
-          >
-        <PortableText value={post.body} components={ptComponents} />
-        </AnimatedContent>
-      </div>
+      <AnimatedContent
+        distance={150}
+        direction="vertical"
+        reverse={false}
+        duration={1.5}
+        ease="power3.out"
+        initialOpacity={0}
+        animateOpacity
+        scale={1}
+        threshold={0.2}
+        delay={0.5}
+      >
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-16">
+          <div className="max-w-3xl mx-auto">
+            <h1 className="text-4xl font-bold text-left mb-4">{post.title}</h1>
+            <p className="text-gray-500 text-sm mb-8">{formatDate(post.publishedAt)}</p>
+            {post.mainImage && (
+              <img
+                src={post.mainImage.asset.url}
+                alt={post.title}
+                className="rounded-2xl shadow-lg mb-8"
+              />
+            )}
+            <h5 className="text-xl font-bold mb-4">{post.excerpt}</h5>
+            <PortableText value={post.body} components={ptComponents} />
+          </div>
+        </div>
+      </AnimatedContent>
     </>
   );
 }

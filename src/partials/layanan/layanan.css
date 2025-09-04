@@ -30,8 +30,8 @@
   margin-right: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
-  margin-top: 1rem;
   margin-bottom: 1rem;
+  margin-top: 1.3rem;
 }
 @media (max-width: 768px) {
   .layanan-sidebar {
@@ -145,4 +145,12 @@
   width: 100%;
   height: auto;
   border-radius: 8px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+@media (max-width: 460px) {
+  .layanan-images {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

@@ -8,6 +8,7 @@ import {
   FooterDivider,
   FooterIcon,
 } from "flowbite-react";
+import BackButton from "./components/BackButton";
 
 const navLinks = [
   { path: "/", label: "Beranda", id: "beranda" },
@@ -60,6 +61,17 @@ function App() {
       document.removeEventListener("touchstart", handleClickOutside);
     };
   }, [dropdownOpen]);
+
+  const getBackButtonTarget = () => {
+    const { pathname } = location;
+    if (pathname === "/produk") return "/#produk-section";
+    if (pathname === "/layanan") return "/#layanan-section";
+    if (pathname === "/highlights") return "/#highlights-section";
+    if (pathname.startsWith("/highlights/")) return "/highlights";
+    return null;
+  };
+
+  const backButtonTarget = getBackButtonTarget();
 
   return (
     <>
@@ -222,12 +234,9 @@ function App() {
           )}
         </div>
       </nav>
-      <main style={{ overflowX: 'hidden' }}>
+      <main style={{ overflowX: 'hidden', marginBottom: '4rem' }}>
+        {backButtonTarget && <BackButton target={backButtonTarget} />}
         <Outlet />
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
       </main>
       <footer className="h-48">
         <div className="contact">

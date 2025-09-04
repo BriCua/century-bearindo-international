@@ -89,6 +89,7 @@ export default function ProductDisplay() {
           {Array.isArray(selectedProduct.images) && selectedProduct.images.map((imageUrl, index) => (
             <img key={index} src={imageUrl} alt={`${selectedProduct.name} image ${index + 1}`} />
           ))}
+
         </div>
         </AnimatedContent>
       </main>

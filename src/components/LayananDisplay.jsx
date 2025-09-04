@@ -88,6 +88,7 @@ export default function LayananDisplay() {
           {Array.isArray(selectedLayanan.images) && selectedLayanan.images.map((imageUrl, index) => (
             <img key={index} src={imageUrl} alt={`${selectedLayanan.name} image ${index + 1}`} />
           ))}
+          
         </div>
         </AnimatedContent>
       </main>

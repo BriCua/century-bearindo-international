@@ -3,7 +3,6 @@ import sanityClient from "../../sanityClient";
 import HighlightPostCard from "../../components/HighlightsPostCard";
 import "../../partials/highlights/card.css";
 import AnimatedContent from "../../components/animations/AnimatedContent";
-import BackButton from "../../components/BackButton";
 
 export default function HighlightPage() {
   const [posts, setPosts] = useState([]);
@@ -40,7 +39,6 @@ export default function HighlightPage() {
         name="keywords"
         content="Highlight, artikel, berita, informasi, industri, bearing"
       />
-      <BackButton target="/#highlights-section" />
       <div className="mt-4 mb-16">
         <AnimatedContent
           distance={150}

@@ -1,25 +1,25 @@
 import { useEffect, useMemo, useRef } from "react";
 
-// 18 partner items with unique image + link
+
 const partners = [
   { image: "./partners/partners-1.webp", link: "https://www.timken.com/products/timken-engineered-bearings/" },
   { image: "./partners/partners-2.webp", link: "https://www.simatec.com/" },
-  { image: "./partners/partners-3.webp", link: "https://www.samick.co.kr/" },
+  { image: "./partners/partners-3.webp", link: "https://www.nachi-fujikoshi.co.jp/eng/" }, 
   { image: "./partners/partners-4.webp", link: "https://www.nmbtc.com/" },
   { image: "./partners/partners-5.webp", link: "https://www.schaeffler.com" },
   { image: "./partners/partners-6.webp", link: "https://www.kawada.com.my/index.php?ws=showproducts&products_id=2479740" },
   { image: "./partners/partners-7.webp", link: "https://www.nose-seiko.co.jp/en/" },
   { image: "./partners/partners-8.webp", link: "https://www.schaeffler.com" },
-  { image: "./partners/partners-9.webp", link: "https://www.iljin.co.kr/" },
+  { image: "./partners/partners-9.webp", link: "https://www.twb.com.cn/en/" }, 
   { image: "./partners/partners-10.webp", link: "https://www.ijics.co.jp/en/" },
   { image: "./partners/partners-11.webp", link: "https://www.fyh.co.jp/en/" },
-  { image: "./partners/partners-12.webp", link: "https://www.flexco.com/" },
-  { image: "./partners/partners-13.webp", link: "https://www.fk-bearing.com/" },
+  { image: "./partners/partners-12.webp", link: "https://www.flexco.com/" }, // REMOVE
+  { image: "./partners/partners-13.webp", link: "https://hydraulictechnologies.com/brands/power-team" }, 
   { image: "./partners/partners-14.webp", link: "https://www.fbj-bearings.com/" },
   { image: "./partners/partners-15.webp", link: "https://www.schaeffler.com" },
   { image: "./partners/partners-16.webp", link: "https://www.detmk.com/" },
   { image: "./partners/partners-17.webp", link: "https://products.bandogrp.com/en/product/bancollan_bearing/" },
-  { image: "./partners/partners-18.webp", link: "https://global.abb/" },
+  { image: "./partners/partners-18.webp", link: "https://global.abb/" }, // REMOVE
 ];
 
 export default function FlipGrid() {
