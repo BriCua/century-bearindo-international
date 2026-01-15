@@ -43,7 +43,10 @@ export default function Tentang() {
               <img
                 src={`${import.meta.env.BASE_URL}identity/about.webp`}
                 className="boxed-left-image"
-              ></img>
+                alt="About Century Bearindo International - company profile and history"
+                loading="lazy"
+                decoding="async"
+              />
             </AnimatedContent>
           </div>
           <div className="grouper">
@@ -135,7 +138,7 @@ export default function Tentang() {
             animateOpacity
             scale={1}
             threshold={0.2}
-            delay={0.75}
+            delay={0.5}
           >
             <div className=" boxed-left-red">
               <h4 className="text-[#f9f9f9] text-left ">Visi</h4>
@@ -157,7 +160,7 @@ export default function Tentang() {
             animateOpacity
             scale={1}
             threshold={0.2}
-            delay={0.75}
+            delay={0.5}
           >
             <div className=" boxed-right-red">
               <h4 className="text-[#f9f9f9] text-left ">Misi</h4>
@@ -205,7 +208,7 @@ export default function Tentang() {
               animateOpacity
               scale={1}
               threshold={0.2}
-              delay={0.25}
+              delay={0}
             >
               <div
                 className="float values-item"
@@ -235,7 +238,7 @@ export default function Tentang() {
               animateOpacity
               scale={1}
               threshold={0.2}
-              delay={0.75}
+              delay={0.2}
             >
               <div
                 className="float values-item"
@@ -265,7 +268,7 @@ export default function Tentang() {
               animateOpacity
               scale={1}
               threshold={0.2}
-              delay={1}
+              delay={0.4}
             >
               <div
                 className="float values-item"
@@ -297,19 +300,19 @@ export default function Tentang() {
               animateOpacity
               scale={1}
               threshold={0.2}
-              delay={1}
+              delay={0.6}
             >
               <div
                 className="float values-item"
                 style={{ animationDelay: `${floatDelays[3]}s` }}
               >
                 <FlipBox
-                  interval={10000}
+                  interval={9000}
                   frontContent={
                     <h4 className="text-2xl font-bold">Kecermatan</h4>
                   }
                   backContent={
-                    <p className="text-center">
+                    <p className="text-justify">
                       Untuk menunjukkan upaya yang gigih dan keras.
                     </p>
                   }

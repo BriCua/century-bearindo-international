@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import FadeContent from "../components/animations/FadeContent";
 import AnimatedContent from "../components/animations/AnimatedContent";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import FlipCard from "../components/animations/FlipCard";
 import FlipGrid from "../components/animations/FlipGrid";
 import sanityClient from "../sanityClient";
@@ -12,18 +12,34 @@ import useViewport from "../utils/useViewport";
 //import InfiniteScroll from '../InfiniteScroll';
 
 export default function Beranda() {
+  // Skip carousel-2 as it clashes with background
   const carouselImages = [
     `${import.meta.env.BASE_URL}carousel/carousel-1.png`,
-    /* `${import.meta.env.BASE_URL}carousel/carousel-2.png`, */
     `${import.meta.env.BASE_URL}carousel/carousel-3.png`,
     `${import.meta.env.BASE_URL}carousel/carousel-4.png`,
     `${import.meta.env.BASE_URL}carousel/carousel-5.png`,
   ];
+  
+  // Map array indices to actual image numbers (skipping 2)
+  const imageNumbers = [1, 3, 4, 5];
   const [products, setProducts] = useState([]);
   const [posts, setPosts] = useState([]);
   const { width } = useViewport();
   const [carouselIndex, setcarouselIndex] = useState(0);
   const [fade, setFade] = useState(true);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Clear URL query params and hash only on page refresh (not navigation)
+  useEffect(() => {
+    // Check if this is a page refresh by looking at performance navigation type
+    const isRefresh = performance.getEntriesByType('navigation')[0]?.type === 'reload';
+    
+    // If it's a refresh and we have hash or search params on homepage, clear them
+    if (isRefresh && location.pathname === '/' && (location.hash || location.search)) {
+      navigate('/', { replace: true });
+    }
+  }, [location, navigate]);
 
   useEffect(() => {
     sanityClient
@@ -110,10 +126,18 @@ export default function Beranda() {
       >
         <img
           src={carouselImages[carouselIndex]}
-          alt=""
+          srcSet={`
+            ${import.meta.env.BASE_URL}carousel/carousel-${imageNumbers[carouselIndex]}-400w.webp 400w,
+            ${import.meta.env.BASE_URL}carousel/carousel-${imageNumbers[carouselIndex]}-800w.webp 800w,
+            ${import.meta.env.BASE_URL}carousel/carousel-${imageNumbers[carouselIndex]}.webp 1200w
+          `}
+          sizes="(max-width: 400px) 400px, (max-width: 800px) 800px, 1200px"
+          alt={`Company showcase slide ${imageNumbers[carouselIndex]} of ${carouselImages.length} - Century Bearindo International`}
           className={fade ? "fade-in" : "fade-out"}
           style={{ width: "100%" }}
           id="carousel"
+          loading={carouselIndex === 0 ? "eager" : "lazy"}
+          decoding="async"
         />
         {/* Left Arrow */}
         <button
@@ -169,6 +193,9 @@ export default function Beranda() {
             <img
               src={`${import.meta.env.BASE_URL}identity/about.webp`}
               className="desc-image"
+              alt="Century Bearindo International - Leading bearing distributor in Surabaya, East Java"
+              loading="lazy"
+              decoding="async"
             />
           </FadeContent>
           <div className="desc-text">

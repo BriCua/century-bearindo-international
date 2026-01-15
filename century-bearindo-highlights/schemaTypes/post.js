@@ -40,6 +40,40 @@ export default {
       validation: Rule => Rule.max(200).warning('An excerpt should be short, ideally under 200 characters.')
     },
     {
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Layanan', value: 'layanan'},
+          {title: 'Produk', value: 'produk'},
+          {title: 'General', value: 'general'}
+        ],
+        layout: 'dropdown'
+      },
+      validation: Rule => Rule.required()
+    },
+    {
+      name: 'subcategory',
+      title: 'Subcategory',
+      type: 'string',
+      options: {
+        list: [
+          // Layanan subcategories
+          {title: 'Pemantauan Kondisi', value: 'pemantauan-kondisi'},
+          {title: 'Laser Shaft Alignment', value: 'laser-shaft-alignment'},
+          {title: 'Penyeimbangan On-Site', value: 'penyeimbangan-on-site'},
+          {title: 'Alat - Bearing Berukuran Besar', value: 'alat-bearing-berukuran-besar'},
+          {title: 'Training', value: 'training'},
+          // Future: Product subcategories can be added here
+          {title: 'None', value: 'none'}
+        ],
+        layout: 'dropdown'
+      },
+      description: 'Optional: Select a specific subcategory if this post relates to a particular service or product',
+      hidden: ({document}) => !document?.category || document.category === 'general'
+    },
+    {
       name: 'body',
       title: 'Body',
       type: 'blockContent',

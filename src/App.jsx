@@ -2,12 +2,6 @@ import { useState, useRef, useEffect, Fragment } from "react";
 import { Icon } from "@iconify/react";
 import { Link, useLocation, Outlet, ScrollRestoration } from "react-router-dom";
 import "./App.css";
-import {
-  Footer,
-  FooterCopyright,
-  FooterDivider,
-  FooterIcon,
-} from "flowbite-react";
 import BackButton from "./components/BackButton";
 
 const navLinks = [
@@ -186,8 +180,10 @@ function App() {
           id="logo"
           src={`${
             import.meta.env.BASE_URL
-          }identity/logo-century-bearindo-international.png`}
-          alt="century bearindo international logo"
+          }identity/logo-century-bearindo-international.webp`}
+          alt="PT Century Bearindo International - Official Bearing Distributor Logo"
+          loading="eager"
+          decoding="async"
         />
         <div className="menu-group">
           {navLinks.map((link) => (

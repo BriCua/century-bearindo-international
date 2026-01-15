@@ -23,7 +23,6 @@
 @import "./partials/beranda/highlights-section.css";
 @import "./components/back-button.css";
 
-@plugin "flowbite-react/plugin/tailwindcss";
 @source "../.flowbite-react/class-list.json";
 
 * {

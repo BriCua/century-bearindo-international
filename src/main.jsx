@@ -1,4 +1,4 @@
-import { StrictMode } from 'react';
+import { StrictMode, lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 
@@ -6,14 +6,23 @@ import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 
 import App from './App.jsx';
 import Beranda from './pages/Beranda.jsx';
-import Tentang from './pages/Tentang.jsx';
-import Produk from './pages/Produk.jsx';
-import Layanan from './pages/Layanan.jsx';
-import Kontak from './pages/Kontak.jsx';
-import Karir from './pages/Karir.jsx';
-import HighlightsPage from './pages/highlights/HighlightsPage.jsx';
-import HighlightsPostPage from './pages/highlights/HighlightsPostPage.jsx';
 import TrailingSlashEnforcer from './components/TrailingSlashEnforcer.jsx';
+
+// Lazy load route components for code splitting
+const Tentang = lazy(() => import('./pages/Tentang.jsx'));
+const Produk = lazy(() => import('./pages/Produk.jsx'));
+const Layanan = lazy(() => import('./pages/Layanan.jsx'));
+const Kontak = lazy(() => import('./pages/Kontak.jsx'));
+const Karir = lazy(() => import('./pages/Karir.jsx'));
+const HighlightsPage = lazy(() => import('./pages/highlights/HighlightsPage.jsx'));
+const HighlightsPostPage = lazy(() => import('./pages/highlights/HighlightsPostPage.jsx'));
+
+// Loading component for Suspense fallback
+const PageLoader = () => (
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '200px' }}>
+    <div>Loading...</div>
+  </div>
+);
 
 const router = createBrowserRouter([
   {
@@ -26,13 +35,34 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Beranda /> },
       { path: "beranda", element: <Navigate to="/" replace /> },
-      { path: "tentang", element: <Tentang /> },
-      { path: "produk", element: <Produk /> },
-      { path: "layanan", element: <Layanan /> },
-      { path: "kontak", element: <Kontak /> },
-      { path: "karir", element: <Karir /> },
-      { path: "highlights", element: <HighlightsPage /> },
-      { path: "highlights/:slug", element: <HighlightsPostPage /> },
+      { 
+        path: "tentang", 
+        element: <Suspense fallback={<PageLoader />}><Tentang /></Suspense> 
+      },
+      { 
+        path: "produk", 
+        element: <Suspense fallback={<PageLoader />}><Produk /></Suspense> 
+      },
+      { 
+        path: "layanan", 
+        element: <Suspense fallback={<PageLoader />}><Layanan /></Suspense> 
+      },
+      { 
+        path: "kontak", 
+        element: <Suspense fallback={<PageLoader />}><Kontak /></Suspense> 
+      },
+      { 
+        path: "karir", 
+        element: <Suspense fallback={<PageLoader />}><Karir /></Suspense> 
+      },
+      { 
+        path: "highlights", 
+        element: <Suspense fallback={<PageLoader />}><HighlightsPage /></Suspense> 
+      },
+      { 
+        path: "highlights/:slug", 
+        element: <Suspense fallback={<PageLoader />}><HighlightsPostPage /></Suspense> 
+      },
     ],
   },
 ], { basename: "/century-bearindo-international/" });
