@@ -21,11 +21,15 @@
   status = 200
 
 [functions]
-  # Change the bundler to be more robust about including dependencies.
-  node_bundler = "zisi"
-  # Explicitly include required modules in the serverless function bundle
-  # to prevent them from being stripped out by the build process.
+  # Tell the bundler to not touch these packages and leave them as external imports.
+  external_node_modules = [
+    "@iconify/react",
+    "@sanity/client",
+    "@sanity/image-url"
+  ]
+  # Ensure the externalized packages are included in the function's node_modules.
   included_files = [
-    "node_modules/@iconify/**",
-    "node_modules/@sanity/**"
+    "node_modules/@iconify/react/**",
+    "node_modules/@sanity/client/**",
+    "node_modules/@sanity/image-url/**"
   ]
