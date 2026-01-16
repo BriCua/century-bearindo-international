@@ -1,0 +1,21 @@
+# This file configures the build and deployment for a Vite SSR app on Netlify.
+
+[build]
+  # Your build command.
+  command = "npm run build"
+  
+  # The directory where your serverless function will be built.
+  # This should match the output directory of your server build script.
+  functions = "dist/server"
+  
+  # The directory for your static client-side assets (CSS, JS, images).
+  # This should match the output directory of your client build script.
+  publish = "dist/client"
+
+# This is the crucial part for SSR.
+# It tells Netlify to send all requests to your server-side rendering function
+# instead of trying to find a static file.
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/entry-server"
+  status = 200

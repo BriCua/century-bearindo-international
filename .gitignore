@@ -32,3 +32,4 @@ dist-ssr
 
 # agent context
 *.txt
+gemini_changelog.md
