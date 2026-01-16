@@ -1,9 +1,17 @@
 import React from 'react';
-import * as imageUrlBuilder from '@sanity/image-url';
+import * as urlBuilder from '@sanity/image-url';
 import sanityClient from '../sanityClient';
 
-// This handles CJS/ESM module interop issues.
-const builderFn = imageUrlBuilder.default || imageUrlBuilder;
+/**
+ * This function recursively unwraps the 'default' property of a module
+ * until it finds the actual function, resolving CJS/ESM interop issues
+ * caused by bundlers.
+ */
+function unwrap(mod) {
+  return mod && mod.__esModule && mod.default ? unwrap(mod.default) : mod;
+}
+
+const builderFn = unwrap(urlBuilder);
 const builder = builderFn(sanityClient);
 
 function urlFor(source) {
