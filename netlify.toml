@@ -21,5 +21,10 @@
   status = 200
 
 [functions]
-  # Explicitly include the '@iconify/react' module in the serverless function bundle.
-  included_files = ["node_modules/@iconify/react/**"]
+  # Explicitly include required modules in the serverless function bundle
+  # to prevent them from being stripped out by the build process.
+  included_files = [
+    "node_modules/@iconify/react/**",
+    "node_modules/@sanity/client/**",
+    "node_modules/@sanity/image-url/**"
+  ]
