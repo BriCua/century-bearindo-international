@@ -1,8 +1,10 @@
 import React from 'react';
-import imageUrlBuilder from '@sanity/image-url';
+import * as imageUrlBuilder from '@sanity/image-url';
 import sanityClient from '../sanityClient';
 
-const builder = imageUrlBuilder(sanityClient);
+// This handles CJS/ESM module interop issues.
+const builderFn = imageUrlBuilder.default || imageUrlBuilder;
+const builder = builderFn(sanityClient);
 
 function urlFor(source) {
   return builder.image(source);
