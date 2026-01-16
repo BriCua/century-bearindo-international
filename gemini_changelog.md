@@ -1,10 +1,8 @@
-## 2025-09-04
-
-- Modified `layanan.css` and `produk.css` to enforce a square aspect ratio on all images within the `LayananDisplay` and `ProductDisplay` components.
-- Added a media query to both stylesheets to display images in a two-column grid on viewports narrower than 460px, preventing them from taking up the full width of the container.
-
-## 2025-08-12
-
-- Refactored `BackButton` component to be rendered globally in `App.jsx` instead of individual pages.
-- Removed `BackButton` from `Produk`, `Layanan`, `HighlightsPage`, and `HighlightsPostPage` pages.
-- Added logic in `App.jsx` to conditionally render `BackButton` based on the current route.
+## 2026-01-16
+- Refactored the application to use Server-Side Rendering (SSR) to improve SEO.
+- Installed `express` to create a server for SSR.
+- Created `entry-server.jsx` and `entry-client.jsx` for server and client entry points.
+- Created `server.js` to handle both development and production SSR.
+- Updated `package.json` with new scripts for building and running the SSR application.
+- Made components SSR-compatible by removing client-side only code from server-side execution.
+- Added native React 19 head management for SEO meta tags.

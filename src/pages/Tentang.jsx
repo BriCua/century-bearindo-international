@@ -1,28 +1,21 @@
 import AnimatedContent from "../components/animations/AnimatedContent";
-import FlipBox from "../components/animations/FlipBox";
-import { useMemo } from "react";
+import { Icon } from "@iconify/react";
+import { useMemo, useState, useEffect } from "react";
 import BackButton from "../components/BackButton";
 
 export default function Tentang() {
-  const floatDelays = useMemo(
-    () => [
-      Math.random() * 2,
-      Math.random() * 2,
-      Math.random() * 2,
-      Math.random() * 2,
-    ],
-    []
-  );
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <>
       <title>Tentang Kami - PT. Century Bearindo International</title>
       <meta
         name="description"
         content="Profil PT. Century Bearindo International, distributor resmi dan terpercaya untuk berbagai merek bearing ternama seperti NACHI, LUK_FAG_INA, FYH, dan lainnya."
-      />
-      <meta
-        name="keywords"
-        content="profil perusahaan, tentang kami, sejarah perusahaan, distributor bearing resmi, century bearindo international"
       />
       <BackButton target="/#tentang-section" />
       <section className="about overflow-hidden">
@@ -210,22 +203,13 @@ export default function Tentang() {
               threshold={0.2}
               delay={0}
             >
-              <div
-                className="float values-item"
-                style={{ animationDelay: `${floatDelays[0]}s` }}
-              >
-                <FlipBox
-                  interval={10000}
-                  frontContent={
-                    <h4 className="text-2xl font-bold">Model Keunggulan</h4>
-                  }
-                  backContent={
-                    <p className="text-center">
-                      Untuk menerapkan praktik terbaik dan menetapkan standar
-                      unggul dalam proses & metode kerja kami.
-                    </p>
-                  }
-                />
+              <div className="values-item">
+                <Icon icon="mdi:star-circle-outline" className="values-icon" />
+                <h4 className="text-2xl font-bold">Model Keunggulan</h4>
+                <p className="text-center">
+                  Menerapkan praktik terbaik untuk standar unggul dalam proses
+                  kerja dan metode, mencapai kualitas tertinggi.
+                </p>
               </div>
             </AnimatedContent>
             <AnimatedContent
@@ -240,22 +224,13 @@ export default function Tentang() {
               threshold={0.2}
               delay={0.2}
             >
-              <div
-                className="float values-item"
-                style={{ animationDelay: `${floatDelays[1]}s` }}
-              >
-                <FlipBox
-                  interval={10000}
-                  frontContent={
-                    <h4 className="text-2xl font-bold">Integritas</h4>
-                  }
-                  backContent={
-                    <p className="text-center">
-                      Mempunyai akhlak yang lurus dan teguh berpegang pada
-                      prinsip moral yang tinggi serta standar profesi.
-                    </p>
-                  }
-                />
+              <div className="values-item">
+                <Icon icon="mdi:shield-check-outline" className="values-icon" />
+                <h4 className="text-2xl font-bold">Integritas</h4>
+                <p className="text-center">
+                  Berpegang teguh pada prinsip moral tinggi dan standar profesi,
+                  menciptakan kepercayaan dan kredibilitas.
+                </p>
               </div>
             </AnimatedContent>
             <AnimatedContent
@@ -270,23 +245,14 @@ export default function Tentang() {
               threshold={0.2}
               delay={0.4}
             >
-              <div
-                className="float values-item"
-                style={{ animationDelay: `${floatDelays[2]}s` }}
-              >
-                <FlipBox
-                  interval={10000}
-                  frontContent={
-                    <h4 className="text-2xl font-bold">Pembinaan</h4>
-                  }
-                  backContent={
-                    <p className="text-center">
-                      Untuk mendidik dan mengembangkan sumber daya manusia kami
-                      guna pertumbuhan sambil memberikan perhatian dan
-                      kesejahteraan kepada mereka.
-                    </p>
-                  }
-                />
+              <div className="values-item">
+                <Icon icon="mdi:account-group-outline" className="values-icon" />
+                <h4 className="text-2xl font-bold">Pembinaan</h4>
+                <p className="text-center">
+                  Mendidik dan mengembangkan sumber daya manusia untuk
+                  pertumbuhan berkelanjutan, dengan perhatian penuh pada
+                  kesejahteraan.
+                </p>
               </div>
             </AnimatedContent>
 
@@ -302,21 +268,13 @@ export default function Tentang() {
               threshold={0.2}
               delay={0.6}
             >
-              <div
-                className="float values-item"
-                style={{ animationDelay: `${floatDelays[3]}s` }}
-              >
-                <FlipBox
-                  interval={9000}
-                  frontContent={
-                    <h4 className="text-2xl font-bold">Kecermatan</h4>
-                  }
-                  backContent={
-                    <p className="text-justify">
-                      Untuk menunjukkan upaya yang gigih dan keras.
-                    </p>
-                  }
-                />
+              <div className="values-item">
+                <Icon icon="mdi:magnify" className="values-icon" />
+                <h4 className="text-2xl font-bold">Kecermatan</h4>
+                <p className="text-center">
+                  Menunjukkan upaya gigih dan kerja keras dalam setiap detail,
+                  memastikan ketelitian dan hasil optimal.
+                </p>
               </div>
             </AnimatedContent>
           </div>

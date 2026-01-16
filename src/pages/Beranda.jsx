@@ -101,6 +101,9 @@ export default function Beranda() {
 
   return (
     <>
+      <title>PT Century Bearindo International - Distributor Bearing</title>
+      <meta name="description" content="PT Century Bearindo International adalah distributor resmi bearing dan sparepart industri terpercaya di Surabaya. Kami adalah mitra resmi dari brand-brand bearing ternama seperti NACHI, FAG, Timken, dan lainnya." />
+
       <figure
         id="carousel-container"
         onClick={(e) => {
@@ -431,7 +434,7 @@ export default function Beranda() {
           </div>
         </AnimatedContent>
       </section>
-      <section className="partners overflow-hidden">
+      <section className="partners overflow-hidden mb-20">
         <AnimatedContent
           distance={150}
           direction="horizontal"

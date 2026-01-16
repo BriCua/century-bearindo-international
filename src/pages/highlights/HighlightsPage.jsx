@@ -1,56 +1,17 @@
-import { useState, useEffect } from "react";
-import { useSearchParams, useNavigate } from "react-router-dom";
-import sanityClient from "../../sanityClient";
+import { useState } from "react";
+import { useSearchParams, useNavigate, useLoaderData } from "react-router-dom";
 import HighlightPostCard from "../../components/HighlightsPostCard";
 import "../../partials/highlights/card.css";
 import AnimatedContent from "../../components/animations/AnimatedContent";
 
 export default function HighlightPage() {
-  const [posts, setPosts] = useState([]);
-  const [allPosts, setAllPosts] = useState([]); // Store all posts for client-side filtering
+  const { posts } = useLoaderData();
   const [searchParams, setSearchParams] = useSearchParams();
   const [showFilters, setShowFilters] = useState(false);
-  const [availableSubcategories, setAvailableSubcategories] = useState([]);
   const navigate = useNavigate();
   
   const category = searchParams.get('category');
   const subcategory = searchParams.get('subcategory');
-
-  useEffect(() => {
-    // Build the GROQ query with filters
-    let query = `*[_type == "post"`;
-    
-    // Add category filter if specified
-    if (category) {
-      query += ` && category == "${category}"`;
-    }
-    
-    // Add subcategory filter if specified
-    if (subcategory) {
-      query += ` && subcategory == "${subcategory}"`;
-    }
-    
-    query += `]{
-      title,
-      slug,
-      publishedAt,
-      excerpt,
-      category,
-      subcategory,
-      mainImage{
-        asset->{
-          _id,
-          url
-        }
-      },
-      "name": author->name,
-    } | order(publishedAt desc)`;
-
-    sanityClient
-      .fetch(query)
-      .then((data) => setPosts(data))
-      .catch(console.error);
-  }, [category, subcategory]);
 
   return (
     <>
@@ -58,10 +19,6 @@ export default function HighlightPage() {
       <meta
         name="description"
         content="Baca artikel terbaru dari PT. Century Bearindo International mengenai industri, produk, dan layanan kami."
-      />
-      <meta
-        name="keywords"
-        content="Highlight, artikel, berita, informasi, industri, bearing"
       />
       <div className="mt-4 mb-16">
         <AnimatedContent

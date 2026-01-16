@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, Fragment } from "react";
 import { Icon } from "@iconify/react";
 import { Link, useLocation, Outlet, ScrollRestoration } from "react-router-dom";
-import "./App.css";
+import "./index.css";
 import BackButton from "./components/BackButton";
 
 const navLinks = [
