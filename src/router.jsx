@@ -1,15 +1,18 @@
+import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 import App from './App';
-import Beranda from './pages/Beranda';
-import Tentang from './pages/Tentang';
-import Produk from './pages/Produk';
-import Layanan from './pages/Layanan';
-import Kontak from './pages/Kontak';
-import Karir from './pages/Karir';
-import HighlightsPage from './pages/highlights/HighlightsPage';
-import HighlightsPostPage from './pages/highlights/HighlightsPostPage';
 import TrailingSlashEnforcer from './components/TrailingSlashEnforcer';
 import sanityClient from './sanityClient';
+
+// Lazy load all the page components
+const Beranda = lazy(() => import('./pages/Beranda'));
+const Tentang = lazy(() => import('./pages/Tentang'));
+const Produk = lazy(() => import('./pages/Produk'));
+const Layanan = lazy(() => import('./pages/Layanan'));
+const Kontak = lazy(() => import('./pages/Kontak'));
+const Karir = lazy(() => import('./pages/Karir'));
+const HighlightsPage = lazy(() => import('./pages/highlights/HighlightsPage'));
+const HighlightsPostPage = lazy(() => import('./pages/highlights/HighlightsPostPage'));
 
 export const routes = [
   {

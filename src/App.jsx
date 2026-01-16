@@ -1,8 +1,9 @@
-import { useState, useRef, useEffect, Fragment } from "react";
+import { useState, useRef, useEffect, Fragment, Suspense } from "react";
 import { Icon } from "@iconify/react";
 import { Link, useLocation, Outlet, ScrollRestoration } from "react-router-dom";
 import "./index.css";
 import BackButton from "./components/BackButton";
+import SkeletonLoader from "./components/animations/SkeletonLoader";
 
 const navLinks = [
   { path: "/", label: "Beranda", id: "beranda" },
@@ -232,7 +233,9 @@ function App() {
       </nav>
       <main style={{ overflowX: 'hidden', marginBottom: '4rem' }}>
         {backButtonTarget && <BackButton target={backButtonTarget} />}
-        <Outlet />
+        <Suspense fallback={<SkeletonLoader />}>
+          <Outlet />
+        </Suspense>
       </main>
       <footer className="h-48">
         <div className="contact">
