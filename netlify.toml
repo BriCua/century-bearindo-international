@@ -19,3 +19,7 @@
   from = "/*"
   to = "/.netlify/functions/entry-server"
   status = 200
+
+[functions]
+  # Explicitly include the '@iconify/react' module in the serverless function bundle.
+  included_files = ["node_modules/@iconify/react/**"]
