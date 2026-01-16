@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath } from 'node:url'; // Keep for other uses if any, but not for this specific path
 import ReactDOMServer from 'react-dom/server';
 import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { routes } from './router';
@@ -23,14 +23,9 @@ export async function handler(event) {
   try {
     const url = new URL(event.rawUrl).pathname;
 
-    // --- FIX: Use the canonical way to get the current directory in an ES module ---
-    const __filename = fileURLToPath(import.meta.url);
-    const __dirname = path.dirname(__filename);
-    
-    // In a Netlify environment, the built template will be in the parent directory
-    // of the function. dist/client/index.html relative to dist/server/entry-server.js
+    // --- FIX: Use a robust path relative to the function's working directory ---
     const template = fs.readFileSync(
-      path.resolve(__dirname, '../client/index.html'),
+      path.resolve(process.cwd(), 'dist/client/index.html'),
       'utf-8'
     );
     
