@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import express from 'express';
+import { generateSitemap } from './server/sitemap.js'; // Import sitemap generator
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -23,6 +24,18 @@ async function createServer() {
     // use vite's connect instance as middleware
     app.use(vite.middlewares);
   }
+
+  // Sitemap route - MUST be before the catch-all SSR handler
+  app.get('/sitemap.xml', async (req, res) => {
+    try {
+      const sitemap = await generateSitemap();
+      res.header('Content-Type', 'application/xml');
+      res.send(sitemap);
+    } catch (e) {
+      console.error('Error generating sitemap:', e);
+      res.status(500).send('Error generating sitemap');
+    }
+  });
   
   app.use(async (req, res) => { // Changed from app.all('*', ...)
     try {

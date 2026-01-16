@@ -1,0 +1,6 @@
+# Allow all user agents to crawl the entire site.
+User-agent: *
+Allow: /
+
+# You can also specify the location of your sitemap if you have one.
+Sitemap: https://century-bearindo-international.netlify.app/sitemap.xml
