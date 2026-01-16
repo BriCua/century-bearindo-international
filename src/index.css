@@ -14,6 +14,7 @@
 @import "./partials/tentang/tentang.css";
 @import "./partials/beranda/highlights-section.css";
 @import "./components/back-button.css";
+@import "./partials/karir/karir.css";
 
 
 * {

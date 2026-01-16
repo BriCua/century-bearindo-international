@@ -1,0 +1,150 @@
+.career-page {
+    padding: 2rem 5%; /* Use section-padding from :root */
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: var(--font-body);
+    color: var(--color-black);
+}
+
+.career-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    background-color: transparent; /* Ensure no distinct background */
+}
+
+.career-header h1 {
+    font-family: var(--font-heading);
+    font-size: 3em;
+    color: var(--color-black); /* Changed to black */
+    margin-bottom: 0.5em;
+}
+
+.career-header p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.job-listings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.job-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s var(--ease-out);
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.job-title {
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    color: var(--color-red);
+    margin-bottom: 0.5rem;
+}
+
+.job-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.job-location, .job-type, .job-salary {
+    background-color: var(--color-bg);
+    padding: 0.3em 0.8em;
+    border-radius: 1em;
+}
+
+.job-description {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Allows description to take up available space */
+}
+
+.apply-button {
+    display: inline-block;
+    background-color: var(--color-red);
+    color: var(--color-white);
+    padding: 0.8em 1.5em;
+    border-radius: 0.5em;
+    text-decoration: none;
+    text-align: center;
+    font-family: var(--font-button);
+    font-size: 1em;
+    transition: background-color 0.3s var(--ease-out);
+}
+
+.apply-button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+.career-footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 0; /* Removed padding */
+    border-top: none; /* Removed border */
+    font-family: var(--font-body);
+    color: #888; /* Changed to a subtle grey */
+}
+
+.career-footer p {
+    font-size: 0.9em; /* Smaller font */
+    line-height: 1.4;
+    margin-bottom: 0.5rem; /* Reduced space */
+}
+
+.career-footer a {
+    color: var(--color-red); /* Keep red for call to action */
+    text-decoration: none;
+    font-weight: normal; /* Removed bold */
+}
+
+.career-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .career-header h1 {
+        font-size: 2.5em;
+    }
+
+    .job-card {
+        padding: 1.2rem;
+    }
+
+    .job-title {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 540px) {
+    .career-page {
+        padding: 1rem 5%;
+    }
+
+    .career-header h1 {
+        font-size: 2em;
+    }
+
+    .job-listings {
+        grid-template-columns: 1fr; /* Stack cards on very small screens */
+    }
+}

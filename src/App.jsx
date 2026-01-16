@@ -237,7 +237,7 @@ function App() {
           <Outlet />
         </Suspense>
       </main>
-      <footer className="h-48">
+      <footer className="main-footer h-48">
         <div className="contact">
           <span>
             <img
