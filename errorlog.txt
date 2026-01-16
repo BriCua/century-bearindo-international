@@ -1,0 +1,12 @@
+This function has crashed
+An unhandled error in the function code triggered the following message:
+
+Runtime.HandlerNotFound - entry-server.handler is undefined or not exported
+
+Stack trace
+Runtime.HandlerNotFound: entry-server.handler is undefined or not exported
+    at UserFunction.js.module.exports.load (file:///var/runtime/index.mjs:1238:15)
+    at async start (file:///var/runtime/index.mjs:1454:23)
+    at async file:///var/runtime/index.mjs:1464:1
+Connection details
+Netlify internal ID: 01KF2MX1PQ16SKDK4Q3GAMXVAY

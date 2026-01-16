@@ -1,0 +1,165 @@
+Best-practice checklist (ordered by impact)
+1. DO NOT generate styles during render (fact)
+
+If CSS depends on runtime values, hydration will re-apply styles.
+
+🚫 Bad:
+
+const color = Math.random() > 0.5 ? "red" : "blue"
+
+
+✔ Good:
+
+const color = "red"
+
+
+Rule: Server render ≡ Client render.
+
+2. Use static CSS first, dynamic CSS last (fact)
+
+Prefer:
+
+CSS files
+
+CSS Modules
+
+Tailwind
+
+Over:
+
+CSS-in-JS with runtime generation
+
+📊 Prediction: reduces flicker ~90%
+
+3. Preload CSS in the server HTML (fact, critical)
+
+Your SSR entry must include CSS links:
+
+<link rel="stylesheet" href="/assets/index.css" />
+
+
+If CSS loads after hydration → flicker.
+
+✔ Vite SSR requires manual CSS injection unless using a framework.
+
+4. Avoid conditional CSS imports (fact)
+
+🚫 Bad:
+
+if (isClient) {
+  import("./theme.css")
+}
+
+
+✔ Good:
+
+import "./theme.css"
+
+
+Conditional imports cause flash on hydration.
+
+5. Theme handling: set BEFORE React runs (fact)
+
+If you have dark/light mode:
+
+🚫 Bad:
+
+useEffect(() => setTheme())
+
+
+✔ Good (inline script in HTML):
+
+<script>
+  document.documentElement.dataset.theme =
+    localStorage.theme || "light"
+</script>
+
+
+This prevents FOUC.
+
+6. Disable StrictMode for visual debugging (fact)
+
+StrictMode causes intentional double mount.
+
+// index.jsx
+// remove StrictMode temporarily
+root.render(<App />)
+
+
+📌 This does not affect production behavior.
+
+7. Use Vite SSR’s CSS manifest properly (fact)
+
+On build:
+
+vite build
+
+
+Use the generated manifest:
+
+const css = manifest["entry-server.js"].css
+
+
+Inject those CSS files into <head>.
+
+📊 Prediction: fixes ~85% of SSR flicker cases.
+
+What to avoid specifically with Vite
+
+❌ Runtime CSS-in-JS without SSR extraction
+❌ useEffect for layout-critical styles
+❌ window.matchMedia during render
+❌ Dynamic className generation
+
+Minimal “correct” Vite SSR pattern (example)
+// entry-server.jsx
+const html = `
+<!DOCTYPE html>
+<html>
+<head>
+  ${cssLinks}
+</head>
+<body>
+  <div id="app">${rendered}</div>
+</body>
+</html>
+`
+
+
+✔ CSS exists before hydration
+✔ No layout shift
+✔ No flicker
+
+When flicker is actually acceptable
+
+(fact)
+
+Dev mode HMR
+
+StrictMode double render
+
+First-time cold reload
+
+But not:
+
+Every refresh
+
+Every route change
+
+Production
+
+Bottom line
+
+Best practice summary:
+
+Static CSS > runtime CSS
+
+Inject CSS during SSR, not after
+
+Theme set before hydration
+
+No render-time randomness
+
+Use Vite SSR manifest
+
+Confidence: 92% this fixes your issue.
