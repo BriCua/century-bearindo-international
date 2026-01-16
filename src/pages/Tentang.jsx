@@ -1,15 +1,9 @@
 import AnimatedContent from "../components/animations/AnimatedContent";
 import { Icon } from "@iconify/react";
-import { useMemo, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import BackButton from "../components/BackButton";
 
 export default function Tentang() {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   return (
     <>
       <title>Tentang Kami - PT. Century Bearindo International</title>

@@ -1,6 +1,5 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url'; // Keep for other uses if any, but not for this specific path
 import ReactDOMServer from 'react-dom/server';
 import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { routes } from './router';
